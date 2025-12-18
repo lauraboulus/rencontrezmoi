@@ -3763,15 +3763,11 @@ body {
     background: linear-gradient(135deg, rgba(26, 58, 82, 0.03), rgba(44, 95, 127, 0.03));
     border-radius: 12px;
     border-left: 4px solid var(--primary);
-}
-
-.section-intro::before {
-    content: 'ℹ️';
-    position: absolute;
-    top: var(--spacing-md);
-    right: var(--spacing-md);
-    font-size: 1.5rem;
-    opacity: 0.5;
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+    font-style: italic;
 }
 
 /* ==================== AMÉLIORATIONS PAGES DÉTAILS RÉALISATIONS ==================== */
