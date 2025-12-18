@@ -2353,39 +2353,6 @@ strong {
     text-align: right;
 }
 
-/* ==================== ANIMATIONS DATA-AOS ==================== */
-[data-aos="fade-up"] {
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeUp 0.8s ease forwards;
-}
-
-[data-aos-delay="100"] { animation-delay: 0.1s; }
-[data-aos-delay="200"] { animation-delay: 0.2s; }
-[data-aos-delay="300"] { animation-delay: 0.3s; }
-[data-aos-delay="400"] { animation-delay: 0.4s; }
-
-[data-aos="fade-left"] {
-    opacity: 0;
-    transform: translateX(50px);
-    animation: fadeLeft 0.8s ease forwards;
-    animation-delay: 0.2s;
-}
-
-@keyframes fadeUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeLeft {
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
 /* ==================== RESPONSIVE ==================== */
 @media (max-width: 768px) {
     .nav-dropdown {
@@ -2412,4 +2379,52 @@ strong {
     .quote-text {
         font-size: 1.1rem;
     }
+}
+
+/* ==================== SYSTÈME DE PAGES ==================== */
+body {
+    overflow: hidden; /* Désactiver le scroll */
+    height: 100vh;
+}
+
+.page-section {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow-y: auto;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    z-index: 1;
+}
+
+.page-section.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 10;
+}
+
+/* Navbar au-dessus de tout */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* Ajuster le padding-top pour compenser la navbar */
+.page-section {
+    padding-top: 80px;
+}
+
+.hero-section {
+    padding-top: 0;
+}
+
+/* Footer en bas de chaque page */
+.footer {
+    margin-top: auto;
 }
