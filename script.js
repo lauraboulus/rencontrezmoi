@@ -234,51 +234,52 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// ==================== NAVIGATION PAR SCROLL ====================
+// ==================== NAVIGATION PAR PAGES ====================
 function initPageNavigation() {
     const pageLinks = document.querySelectorAll('a[href^="#"]');
+    const pageSections = document.querySelectorAll('.page-section');
+    
+    // Fonction pour changer de page
+    function navigateToPage(targetId) {
+        // Retirer la classe active de toutes les sections
+        pageSections.forEach(section => {
+            section.classList.remove('active');
+        });
+        
+        // Ajouter la classe active à la section ciblée
+        const targetSection = document.querySelector(targetId);
+        if (targetSection) {
+            targetSection.classList.add('active');
+            
+            // Scroll en haut de la nouvelle page
+            targetSection.scrollTop = 0;
+            
+            // Mettre à jour l'URL sans recharger
+            history.pushState(null, '', targetId);
+        }
+    }
     
     // Écouter tous les clics sur les liens
     pageLinks.forEach(link => {
         link.addEventListener('click', (e) => {
+            e.preventDefault();
             const targetId = link.getAttribute('href');
             
-            // Si c'est juste "#", ne rien faire
-            if (targetId === '#') {
-                e.preventDefault();
-                return;
-            }
-            
-            if (targetId && targetId.startsWith('#') && targetId.length > 1) {
-                e.preventDefault();
-                const targetSection = document.querySelector(targetId);
-                
-                if (targetSection) {
-                    // Scroll smooth vers la section
-                    targetSection.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    
-                    // Mettre à jour l'URL
-                    history.pushState(null, '', targetId);
-                }
+            if (targetId && targetId.startsWith('#')) {
+                navigateToPage(targetId);
             }
         });
     });
     
-    // Au chargement, scroller vers la section dans l'URL
-    if (window.location.hash) {
-        setTimeout(() => {
-            const targetSection = document.querySelector(window.location.hash);
-            if (targetSection) {
-                targetSection.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        }, 100);
-    }
+    // Gérer le bouton retour du navigateur
+    window.addEventListener('popstate', () => {
+        const hash = window.location.hash || '#accueil';
+        navigateToPage(hash);
+    });
+    
+    // Au chargement, afficher la bonne page selon l'URL
+    const initialHash = window.location.hash || '#accueil';
+    navigateToPage(initialHash);
 }
 
 // Initialiser au chargement

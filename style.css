@@ -2346,26 +2346,28 @@ strong {
 }
 
 /* ==================== SYSTÈME DE PAGES ==================== */
-/* Body configuré pour scroll normal */
 body {
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow: hidden; /* Désactiver le scroll */
+    height: 100vh;
 }
 
 .page-section {
-    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    position: relative;
-    padding-top: 100px;
+    height: 100vh;
+    overflow-y: auto;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    z-index: 1;
 }
 
 .page-section.active {
-    /* Classe conservée pour compatibilité mais non utilisée */
-}
-
-/* Smooth scroll */
-html {
-    scroll-behavior: smooth;
+    opacity: 1;
+    visibility: visible;
+    z-index: 10;
 }
 
 /* Navbar au-dessus de tout */
