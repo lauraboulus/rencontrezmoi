@@ -478,73 +478,68 @@ document.addEventListener('DOMContentLoaded', function() {
         statsObserver.observe(stat);
     });
 });
-// ==================== FIX ULTRA BOUTONS RÉALISATIONS ====================
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('🔧 Init fix boutons réalisations');
+
+// ==================== FIX BOUTONS SANS TOUCHER AU SCROLLING ====================
+window.addEventListener('load', function() {
+    console.log('🔧 Fix boutons - système pages conservé');
     
-    // Attendre que tout soit chargé
     setTimeout(function() {
-        // FILTRES
+        // FIX FILTRES
         const categoryBtns = document.querySelectorAll('.category-btn');
         const projectCards = document.querySelectorAll('.project-showcase-card');
         
-        console.log('Boutons filtres:', categoryBtns.length);
-        console.log('Cards projets:', projectCards.length);
+        if (categoryBtns.length > 0) {
+            categoryBtns.forEach((btn, index) => {
+                btn.style.position = 'relative';
+                btn.style.zIndex = '9999';
+                btn.style.pointerEvents = 'auto';
+                
+                btn.onclick = function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    const category = this.getAttribute('data-category');
+                    console.log('✅ Filtre cliqué:', category);
+                    
+                    // Activer le bouton
+                    categoryBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filtrer les projets
+                    projectCards.forEach(card => {
+                        const cardCategory = card.getAttribute('data-category');
+                        if (category === 'all' || cardCategory === category) {
+                            card.style.display = 'grid';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                };
+            });
+        }
         
-        categoryBtns.forEach(btn => {
-            // Retirer tous les listeners existants en clonant
-            const newBtn = btn.cloneNode(true);
-            btn.parentNode.replaceChild(newBtn, btn);
-            
-            newBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                e.stopImmediatePropagation();
+        // FIX BOUTONS DÉCOUVRIR
+        const ctaButtons = document.querySelectorAll('.project-cta');
+        
+        if (ctaButtons.length > 0) {
+            ctaButtons.forEach(btn => {
+                btn.style.position = 'relative';
+                btn.style.zIndex = '9999';
+                btn.style.pointerEvents = 'auto';
                 
-                const category = this.getAttribute('data-category');
-                console.log('✅ Filtre cliqué:', category);
-                
-                // Activer bouton
-                document.querySelectorAll('.category-btn').forEach(b => {
-                    b.classList.remove('active');
-                });
-                this.classList.add('active');
-                
-                // Filtrer projets
-                document.querySelectorAll('.project-showcase-card').forEach(card => {
-                    const cardCategory = card.getAttribute('data-category');
-                    if (category === 'all' || cardCategory === category) {
-                        card.style.display = 'grid';
-                        card.style.opacity = '1';
-                        card.style.visibility = 'visible';
-                    } else {
-                        card.style.display = 'none';
+                btn.onclick = function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    const href = this.getAttribute('href');
+                    console.log('✅ Bouton découvrir cliqué:', href);
+                    
+                    if (href) {
+                        window.location.href = href;
                     }
-                });
-            }, true); // useCapture = true
-        });
+                };
+            });
+        }
         
-        // BOUTONS "DÉCOUVRIR LE PROJET"
-        const projectButtons = document.querySelectorAll('.project-cta');
-        console.log('Boutons découvrir:', projectButtons.length);
-        
-        projectButtons.forEach(btn => {
-            const newBtn = btn.cloneNode(true);
-            btn.parentNode.replaceChild(newBtn, btn);
-            
-            newBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                e.stopImmediatePropagation();
-                
-                const href = this.getAttribute('href');
-                console.log('✅ Bouton découvrir cliqué:', href);
-                
-                if (href) {
-                    window.location.href = href;
-                }
-            }, true);
-        });
-        
-    }, 1000); // 1 seconde de délai
+    }, 500);
 });

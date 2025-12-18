@@ -5549,31 +5549,3 @@ body {
 .category-btn {
     will-change: transform;
 }
-
-/* ==================== FIX BOUTONS RÉALISATIONS ==================== */
-/* Forcer les boutons à être cliquables */
-.category-filters,
-.category-btn,
-.project-cta,
-.btn,
-button {
-    position: relative !important;
-    z-index: 1000 !important;
-    pointer-events: auto !important;
-    cursor: pointer !important;
-}
-
-.project-showcase-card {
-    position: relative !important;
-    z-index: 100 !important;
-}
-
-.projects-showcase {
-    position: relative !important;
-    z-index: 50 !important;
-}
-
-/* S'assurer que les liens sont cliquables */
-a {
-    pointer-events: auto !important;
-}
