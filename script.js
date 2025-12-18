@@ -285,15 +285,23 @@ function initPageNavigation() {
 // Initialiser au chargement
 document.addEventListener('DOMContentLoaded', initPageNavigation);
 
-// ==================== FILTRES RÉALISATIONS ====================
-document.addEventListener('DOMContentLoaded', function() {
+// ==================== FILTRES RÉALISATIONS - VERSION CORRIGÉE ====================
+// Utiliser un délai pour s'assurer que tout est chargé
+setTimeout(function() {
     const categoryBtns = document.querySelectorAll('.category-btn');
     const projectCards = document.querySelectorAll('.project-showcase-card');
 
-    if (categoryBtns.length > 0) {
+    console.log('Filtres - Boutons trouvés:', categoryBtns.length);
+    console.log('Filtres - Cards trouvées:', projectCards.length);
+
+    if (categoryBtns.length > 0 && projectCards.length > 0) {
         categoryBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
                 const category = this.getAttribute('data-category');
+                console.log('Filtre cliqué:', category);
                 
                 // Activer le bouton cliqué
                 categoryBtns.forEach(b => b.classList.remove('active'));
@@ -304,7 +312,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     const cardCategory = card.getAttribute('data-category');
                     if (category === 'all' || cardCategory === category) {
                         card.style.display = 'grid';
-                        // Animation d'apparition
                         card.style.animation = 'fadeInUp 0.6s ease backwards';
                     } else {
                         card.style.display = 'none';
@@ -312,8 +319,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             });
         });
+    } else {
+        console.error('Filtres - Éléments non trouvés');
     }
-});
+}, 500);
 
 // ==================== BARRE DE PROGRESSION LECTURE ====================
 if (document.querySelector('.project-detail-page')) {
