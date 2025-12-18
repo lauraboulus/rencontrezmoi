@@ -2396,3 +2396,50 @@ body {
 .footer {
     margin-top: auto;
 }
+
+/* ==================== VALEURS AVEC GIFS ==================== */
+.value-gif {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto var(--spacing-md);
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(26, 58, 82, 0.15);
+    border: 4px solid var(--bg-secondary);
+    transition: all 0.4s ease;
+}
+
+.value-gif img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.value-card:hover .value-gif {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 15px 40px rgba(26, 58, 82, 0.25);
+    border-color: var(--primary);
+}
+
+.value-card {
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.value-card h3 {
+    color: var(--primary);
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+    font-family: var(--font-heading);
+}
+
+.value-card p {
+    color: var(--text-primary);
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+.value-card:hover {
+    transform: translateY(-5px);
+}
