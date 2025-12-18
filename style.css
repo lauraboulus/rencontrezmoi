@@ -5204,3 +5204,352 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+/* ==================== RÉALISATIONS - DESIGN ENCORE PLUS JOLI ==================== */
+
+/* Container avec effet de profondeur amélioré */
+.projects-showcase {
+    position: relative;
+}
+
+.projects-showcase::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 120%;
+    background: radial-gradient(ellipse at center, rgba(26, 58, 82, 0.03) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Cards de projet avec effet glassmorphism */
+.project-showcase-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(26, 58, 82, 0.08);
+    position: relative;
+    z-index: 1;
+}
+
+.project-showcase-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    padding: 2px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary), var(--primary));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.project-showcase-card:hover::after {
+    opacity: 1;
+}
+
+/* Numéro avec effet néon au hover */
+.project-number {
+    transition: all 0.4s ease;
+    text-shadow: 0 0 0 transparent;
+}
+
+.project-showcase-card:hover .project-number {
+    color: var(--primary);
+    text-shadow: 
+        0 0 20px rgba(26, 58, 82, 0.3),
+        0 0 40px rgba(26, 58, 82, 0.2);
+}
+
+/* Logo avec rotation subtile et scale */
+.project-logo-large {
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.project-showcase-card:hover .project-logo-large {
+    transform: scale(1.1) rotate(2deg);
+}
+
+/* Badge avec animation pulse */
+.project-badge {
+    animation: badgePulse 2s ease infinite;
+}
+
+@keyframes badgePulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(26, 58, 82, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 10px rgba(26, 58, 82, 0);
+    }
+}
+
+/* Meta info avec icônes animées */
+.meta-date svg,
+.meta-location svg {
+    transition: all 0.3s ease;
+}
+
+.meta-date:hover svg,
+.meta-location:hover svg {
+    transform: scale(1.2) rotate(10deg);
+    color: var(--primary);
+}
+
+/* Titre avec effet de soulignement progressif */
+.project-title {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.project-title::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    transition: width 0.4s ease;
+}
+
+.project-showcase-card:hover .project-title::after {
+    width: 100%;
+}
+
+/* Highlights avec effet de levée 3D */
+.highlight-item {
+    transform-style: preserve-3d;
+    transition: all 0.3s ease;
+}
+
+.highlight-item:hover {
+    transform: translateY(-3px) translateZ(10px);
+    box-shadow: 0 8px 20px rgba(26, 58, 82, 0.15);
+}
+
+.highlight-icon {
+    transition: all 0.3s ease;
+}
+
+.highlight-item:hover .highlight-icon {
+    transform: scale(1.3) rotate(15deg);
+    filter: drop-shadow(0 4px 8px rgba(26, 58, 82, 0.2));
+}
+
+/* Tool tags avec effet rainbow au hover */
+.tool-tag {
+    position: relative;
+    overflow: hidden;
+}
+
+.tool-tag::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        45deg,
+        var(--primary) 0%,
+        var(--secondary) 25%,
+        var(--primary) 50%,
+        var(--secondary) 75%,
+        var(--primary) 100%
+    );
+    background-size: 300% 300%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    animation: rainbowFlow 3s ease infinite;
+}
+
+@keyframes rainbowFlow {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.tool-tag:hover::before {
+    opacity: 1;
+}
+
+.tool-tag span {
+    position: relative;
+    z-index: 1;
+}
+
+/* Bouton CTA avec effet de vague */
+.project-cta {
+    position: relative;
+    overflow: hidden;
+}
+
+.project-cta::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.project-cta:hover::after {
+    width: 400px;
+    height: 400px;
+}
+
+/* Filtres catégories avec effet morphing */
+.category-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.category-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+    border-radius: 50px;
+}
+
+.category-btn.active::before,
+.category-btn:hover::before {
+    transform: scaleX(1);
+}
+
+.category-btn span,
+.category-btn .category-icon {
+    position: relative;
+    z-index: 1;
+    transition: color 0.3s ease;
+}
+
+.category-btn.active span,
+.category-btn.active .category-icon,
+.category-btn:hover span,
+.category-btn:hover .category-icon {
+    color: white;
+}
+
+/* Visual avec dégradé subtil */
+.project-visual {
+    background: linear-gradient(135deg, 
+        rgba(26, 58, 82, 0.03) 0%, 
+        white 50%, 
+        rgba(44, 95, 127, 0.03) 100%
+    );
+    position: relative;
+    overflow: hidden;
+}
+
+.project-visual::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(26, 58, 82, 0.05) 0%, transparent 70%);
+    animation: rotateGlow 20s linear infinite;
+}
+
+@keyframes rotateGlow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Description avec effet de lecture agréable */
+.project-description {
+    line-height: 1.8;
+    position: relative;
+}
+
+.project-description::first-letter {
+    font-size: 1.3em;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+/* Section header avec particules */
+.section-header {
+    position: relative;
+}
+
+.section-header::before,
+.section-header::after {
+    content: '✨';
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.3;
+    animation: floatParticles 3s ease-in-out infinite;
+}
+
+.section-header::before {
+    left: -40px;
+    animation-delay: 0s;
+}
+
+.section-header::after {
+    right: -40px;
+    animation-delay: 1.5s;
+}
+
+@keyframes floatParticles {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.3;
+    }
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+        opacity: 0.6;
+    }
+}
+
+/* Amélioration du subtitle avec animation */
+.section-subtitle {
+    animation: fadeIn 1s ease 0.3s backwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive amélioré */
+@media (max-width: 768px) {
+    .section-header::before,
+    .section-header::after {
+        display: none;
+    }
+    
+    .project-showcase-card {
+        padding: var(--spacing-lg);
+    }
+    
+    .project-number {
+        font-size: 2.5rem;
+    }
+}
+
+/* Performance optimizations */
+.project-showcase-card,
+.project-logo-large,
+.highlight-item,
+.tool-tag,
+.category-btn {
+    will-change: transform;
+}
