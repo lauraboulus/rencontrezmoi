@@ -2231,20 +2231,6 @@ strong {
     animation-delay: 10s;
 }
 
-.title-underline {
-    width: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--primary), var(--secondary));
-    margin-top: var(--spacing-xs);
-    border-radius: 2px;
-    animation: slideIn 1s ease forwards;
-    animation-delay: 0.5s;
-}
-
-@keyframes slideIn {
-    to { width: 120px; }
-}
-
 .motto-bar {
     display: inline-block;
     width: 4px;
