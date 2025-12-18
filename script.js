@@ -478,3 +478,66 @@ document.addEventListener('DOMContentLoaded', function() {
         statsObserver.observe(stat);
     });
 });
+
+
+// ==================== FIX ULTRA SIMPLE - EXÉCUTÉ EN DERNIER ====================
+setTimeout(function() {
+    console.log('🚀 FIX BOUTONS ULTRA SIMPLE ACTIVÉ');
+    
+    // FORCER les boutons filtres
+    const filterBtns = document.querySelectorAll('.category-btn');
+    console.log('Boutons filtres trouvés:', filterBtns.length);
+    
+    filterBtns.forEach(function(btn) {
+        // Supprimer TOUS les listeners existants
+        const newBtn = btn.cloneNode(true);
+        btn.parentNode.replaceChild(newBtn, btn);
+        
+        // Ajouter le nouveau
+        newBtn.addEventListener('click', function(event) {
+            event.stopImmediatePropagation();
+            event.preventDefault();
+            
+            const cat = this.getAttribute('data-category');
+            console.log('🎯 FILTRE CLIQUÉ:', cat);
+            
+            // Changer l'actif
+            document.querySelectorAll('.category-btn').forEach(function(b) {
+                b.classList.remove('active');
+            });
+            this.classList.add('active');
+            
+            // Filtrer
+            document.querySelectorAll('.project-showcase-card').forEach(function(card) {
+                const cardCat = card.getAttribute('data-category');
+                if (cat === 'all' || cardCat === cat) {
+                    card.style.display = 'grid';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }, { capture: true });
+    });
+    
+    // FORCER les boutons découvrir
+    const ctaBtns = document.querySelectorAll('.project-cta');
+    console.log('Boutons CTA trouvés:', ctaBtns.length);
+    
+    ctaBtns.forEach(function(btn) {
+        const newBtn = btn.cloneNode(true);
+        btn.parentNode.replaceChild(newBtn, btn);
+        
+        newBtn.addEventListener('click', function(event) {
+            event.stopImmediatePropagation();
+            event.preventDefault();
+            
+            const url = this.getAttribute('href');
+            console.log('🎯 CTA CLIQUÉ:', url);
+            
+            if (url && !url.startsWith('#')) {
+                window.location.href = url;
+            }
+        }, { capture: true });
+    });
+    
+}, 2000); // 2 secondes après chargement complet
