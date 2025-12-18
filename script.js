@@ -285,23 +285,15 @@ function initPageNavigation() {
 // Initialiser au chargement
 document.addEventListener('DOMContentLoaded', initPageNavigation);
 
-// ==================== FILTRES RÉALISATIONS - VERSION CORRIGÉE ====================
-// Utiliser un délai pour s'assurer que tout est chargé
-setTimeout(function() {
+// ==================== FILTRES RÉALISATIONS ====================
+document.addEventListener('DOMContentLoaded', function() {
     const categoryBtns = document.querySelectorAll('.category-btn');
     const projectCards = document.querySelectorAll('.project-showcase-card');
 
-    console.log('Filtres - Boutons trouvés:', categoryBtns.length);
-    console.log('Filtres - Cards trouvées:', projectCards.length);
-
-    if (categoryBtns.length > 0 && projectCards.length > 0) {
+    if (categoryBtns.length > 0) {
         categoryBtns.forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                
+            btn.addEventListener('click', function() {
                 const category = this.getAttribute('data-category');
-                console.log('Filtre cliqué:', category);
                 
                 // Activer le bouton cliqué
                 categoryBtns.forEach(b => b.classList.remove('active'));
@@ -312,6 +304,7 @@ setTimeout(function() {
                     const cardCategory = card.getAttribute('data-category');
                     if (category === 'all' || cardCategory === category) {
                         card.style.display = 'grid';
+                        // Animation d'apparition
                         card.style.animation = 'fadeInUp 0.6s ease backwards';
                     } else {
                         card.style.display = 'none';
@@ -319,10 +312,8 @@ setTimeout(function() {
                 });
             });
         });
-    } else {
-        console.error('Filtres - Éléments non trouvés');
     }
-}, 500);
+});
 
 // ==================== BARRE DE PROGRESSION LECTURE ====================
 if (document.querySelector('.project-detail-page')) {
@@ -486,4 +477,74 @@ document.addEventListener('DOMContentLoaded', function() {
     statNumbers.forEach(stat => {
         statsObserver.observe(stat);
     });
+});
+// ==================== FIX ULTRA BOUTONS RÉALISATIONS ====================
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('🔧 Init fix boutons réalisations');
+    
+    // Attendre que tout soit chargé
+    setTimeout(function() {
+        // FILTRES
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        const projectCards = document.querySelectorAll('.project-showcase-card');
+        
+        console.log('Boutons filtres:', categoryBtns.length);
+        console.log('Cards projets:', projectCards.length);
+        
+        categoryBtns.forEach(btn => {
+            // Retirer tous les listeners existants en clonant
+            const newBtn = btn.cloneNode(true);
+            btn.parentNode.replaceChild(newBtn, btn);
+            
+            newBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                e.stopImmediatePropagation();
+                
+                const category = this.getAttribute('data-category');
+                console.log('✅ Filtre cliqué:', category);
+                
+                // Activer bouton
+                document.querySelectorAll('.category-btn').forEach(b => {
+                    b.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // Filtrer projets
+                document.querySelectorAll('.project-showcase-card').forEach(card => {
+                    const cardCategory = card.getAttribute('data-category');
+                    if (category === 'all' || cardCategory === category) {
+                        card.style.display = 'grid';
+                        card.style.opacity = '1';
+                        card.style.visibility = 'visible';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }, true); // useCapture = true
+        });
+        
+        // BOUTONS "DÉCOUVRIR LE PROJET"
+        const projectButtons = document.querySelectorAll('.project-cta');
+        console.log('Boutons découvrir:', projectButtons.length);
+        
+        projectButtons.forEach(btn => {
+            const newBtn = btn.cloneNode(true);
+            btn.parentNode.replaceChild(newBtn, btn);
+            
+            newBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                e.stopImmediatePropagation();
+                
+                const href = this.getAttribute('href');
+                console.log('✅ Bouton découvrir cliqué:', href);
+                
+                if (href) {
+                    window.location.href = href;
+                }
+            }, true);
+        });
+        
+    }, 1000); // 1 seconde de délai
 });
