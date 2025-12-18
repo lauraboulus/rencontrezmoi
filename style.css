@@ -2639,6 +2639,9 @@ body {
     padding: 120px 0 var(--spacing-xl);
     min-height: 100vh;
     background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    display: block;
+    visibility: visible;
+    opacity: 1;
 }
 
 .breadcrumb {
