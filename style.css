@@ -2381,11 +2381,15 @@ body {
 
 /* Ajuster le padding-top pour compenser la navbar */
 .page-section {
-    padding-top: 80px;
+    padding-top: 100px;
 }
 
 .hero-section {
     padding-top: 0;
+}
+
+.hero {
+    padding-top: 100px;
 }
 
 /* Footer en bas de chaque page */
