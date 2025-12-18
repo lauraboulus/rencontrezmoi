@@ -284,3 +284,33 @@ function initPageNavigation() {
 
 // Initialiser au chargement
 document.addEventListener('DOMContentLoaded', initPageNavigation);
+
+// ==================== FILTRES RÉALISATIONS ====================
+document.addEventListener('DOMContentLoaded', function() {
+    const categoryBtns = document.querySelectorAll('.category-btn');
+    const projectCards = document.querySelectorAll('.project-showcase-card');
+
+    if (categoryBtns.length > 0) {
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const category = this.getAttribute('data-category');
+                
+                // Activer le bouton cliqué
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Filtrer les projets
+                projectCards.forEach(card => {
+                    const cardCategory = card.getAttribute('data-category');
+                    if (category === 'all' || cardCategory === category) {
+                        card.style.display = 'grid';
+                        // Animation d'apparition
+                        card.style.animation = 'fadeInUp 0.6s ease backwards';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    }
+});
