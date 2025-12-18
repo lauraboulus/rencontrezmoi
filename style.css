@@ -2443,3 +2443,193 @@ body {
 .value-card:hover {
     transform: translateY(-5px);
 }
+
+/* ==================== COMPÉTENCES HEXAGONALES DESIGN ==================== */
+.section-subtitle {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto var(--spacing-xl);
+}
+
+.skills-hexagon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+.skill-hex-card {
+    background: white;
+    border-radius: 20px;
+    padding: var(--spacing-lg);
+    box-shadow: 0 10px 40px rgba(26, 58, 82, 0.08);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+}
+
+.skill-hex-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.skill-hex-card:hover::before {
+    transform: scaleX(1);
+}
+
+.skill-hex-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(26, 58, 82, 0.15);
+    border-color: var(--primary);
+}
+
+.skill-hex-card[data-category="technique"]:hover {
+    border-color: var(--primary);
+}
+
+.skill-hex-card[data-category="humaine"]:hover {
+    border-color: var(--secondary);
+}
+
+.hex-icon {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto var(--spacing-md);
+    position: relative;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    background: linear-gradient(135deg, var(--bg-secondary), white);
+    padding: 3px;
+    transition: all 0.4s ease;
+}
+
+.hex-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.skill-hex-card:hover .hex-icon {
+    transform: rotate(180deg) scale(1.1);
+}
+
+.hex-content {
+    text-align: center;
+}
+
+.skill-category {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    margin-bottom: var(--spacing-sm);
+    background: var(--bg-secondary);
+    color: var(--primary);
+}
+
+.skill-hex-card[data-category="technique"] .skill-category {
+    background: rgba(26, 58, 82, 0.1);
+    color: var(--primary);
+}
+
+.skill-hex-card[data-category="humaine"] .skill-category {
+    background: rgba(44, 95, 127, 0.1);
+    color: var(--secondary);
+}
+
+.hex-content h3 {
+    font-size: 1.3rem;
+    color: var(--primary);
+    margin-bottom: var(--spacing-sm);
+    font-family: var(--font-heading);
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    justify-content: center;
+    margin: var(--spacing-sm) 0;
+}
+
+.skill-tags span {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.7rem;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    border-radius: 15px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.skill-tags span:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(26, 58, 82, 0.3);
+}
+
+.hex-content p {
+    color: var(--text-primary);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Légende */
+.skills-legend {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid rgba(26, 58, 82, 0.1);
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.legend-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.legend-dot.technique {
+    background: var(--primary);
+    box-shadow: 0 0 10px rgba(26, 58, 82, 0.3);
+}
+
+.legend-dot.humaine {
+    background: var(--secondary);
+    box-shadow: 0 0 10px rgba(44, 95, 127, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .skills-hexagon-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .hex-icon {
+        width: 80px;
+        height: 80px;
+    }
+}
