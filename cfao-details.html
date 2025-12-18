@@ -71,6 +71,22 @@
                 </div>
             </div>
 
+            <!-- Stats visuelles -->
+            <div class="project-stats">
+                <div class="stat-card">
+                    <div class="stat-number" data-target="1000">0</div>
+                    <div class="stat-label">Actifs IT cartographiés</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="500">0</div>
+                    <div class="stat-label">Collaborateurs sensibilisés</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="50">0</div>
+                    <div class="stat-label">Vulnérabilités critiques corrigées</div>
+                </div>
+            </div>
+
             <!-- Contenu principal -->
             <div class="project-detail-content">
                 <!-- Section: Contexte -->
@@ -113,22 +129,74 @@
                 <div class="content-section">
                     <h3 class="section-heading">Actions menées et solutions déployées</h3>
                     
-                    <h4 class="subsection-heading">Gestion des vulnérabilités & tests d'intrusion</h4>
-                    <ul class="detail-list">
-                        <li>Mise en place d'un processus complet de détection, d'évaluation et de remédiation des vulnérabilités, appuyé par une veille continue.</li>
-                        <li>Élaboration d'un processus structuré de tests d'intrusion, incluant un template standardisé et une méthodologie claire.</li>
-                        <li>Utilisation d'outils spécialisés : Nessus, Nmap, Nikto, WhatWeb, Patrowl, Hackuity, Uncovery.</li>
-                        <li>Suivi rigoureux des vulnérabilités : mise à jour des statuts, communication aux parties prenantes et accompagnement des plans de remédiation.</li>
-                        <li>Cartographie des actifs IT (domaines, IP, URL, redirections), avec attribution de niveaux de criticité afin de prioriser efficacement les actions de sécurisation.</li>
-                    </ul>
+                    <div class="section-with-icon">
+                        <div class="section-icon-box">🛡️</div>
+                        <div class="section-icon-content">
+                            <h4 class="subsection-heading">Gestion des vulnérabilités & tests d'intrusion</h4>
+                            
+                            <div class="impact-grid">
+                                <div class="impact-card">
+                                    <div class="impact-icon">🔍</div>
+                                    <h5 class="impact-title">Processus structuré</h5>
+                                    <p class="impact-description">Détection, évaluation et remédiation avec veille continue</p>
+                                </div>
+                                <div class="impact-card">
+                                    <div class="impact-icon">📋</div>
+                                    <h5 class="impact-title">Méthodologie pentest</h5>
+                                    <p class="impact-description">Template standardisé et processus reproductible</p>
+                                </div>
+                                <div class="impact-card">
+                                    <div class="impact-icon">🗺️</div>
+                                    <h5 class="impact-title">Cartographie complète</h5>
+                                    <p class="impact-description">Domaines, IP, URL avec niveaux de criticité</p>
+                                </div>
+                            </div>
 
-                    <h4 class="subsection-heading">Sensibilisation & facteur humain</h4>
-                    <ul class="detail-list">
-                        <li>Conception et déploiement de programmes de sensibilisation cybersécurité à destination des collaborateurs et partenaires.</li>
-                        <li>Animation de formations interactives et ateliers pratiques.</li>
-                        <li>Création de contenus pédagogiques : vidéos, activités ludiques, quiz et évaluations pour mesurer l'adoption des bonnes pratiques.</li>
-                        <li>Rédaction d'articles de sensibilisation diffusés sur SharePoint Groupe et auprès de la DSI.</li>
-                    </ul>
+                            <div class="tech-gallery">
+                                <div class="tech-item">
+                                    <div class="tech-icon">🔒</div>
+                                    <div class="tech-name">Nessus</div>
+                                </div>
+                                <div class="tech-item">
+                                    <div class="tech-icon">🌐</div>
+                                    <div class="tech-name">Nmap</div>
+                                </div>
+                                <div class="tech-item">
+                                    <div class="tech-icon">🔎</div>
+                                    <div class="tech-name">Nikto</div>
+                                </div>
+                                <div class="tech-item">
+                                    <div class="tech-icon">🌍</div>
+                                    <div class="tech-name">WhatWeb</div>
+                                </div>
+                                <div class="tech-item">
+                                    <div class="tech-icon">🎯</div>
+                                    <div class="tech-name">Patrowl</div>
+                                </div>
+                                <div class="tech-item">
+                                    <div class="tech-icon">📊</div>
+                                    <div class="tech-name">Hackuity</div>
+                                </div>
+                                <div class="tech-item">
+                                    <div class="tech-icon">🔍</div>
+                                    <div class="tech-name">Uncovery</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-with-icon" style="margin-top: var(--spacing-xl);">
+                        <div class="section-icon-box">💡</div>
+                        <div class="section-icon-content">
+                            <h4 class="subsection-heading">Sensibilisation & facteur humain</h4>
+                            <ul class="detail-list">
+                                <li>Conception et déploiement de programmes de sensibilisation cybersécurité à destination des collaborateurs et partenaires.</li>
+                                <li>Animation de formations interactives et ateliers pratiques.</li>
+                                <li>Création de contenus pédagogiques : vidéos, activités ludiques, quiz et évaluations pour mesurer l'adoption des bonnes pratiques.</li>
+                                <li>Rédaction d'articles de sensibilisation diffusés sur SharePoint Groupe et auprès de la DSI.</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Section: Apports -->
@@ -141,6 +209,11 @@
                         <li>une approche équilibrée entre rigueur technique, pédagogie et communication.</li>
                     </ul>
                     <p class="emphasis quote-style">Protéger les systèmes est indispensable. Impliquer les humains est essentiel.</p>
+                </div>
+
+                <!-- Blockquote inspirante -->
+                <div class="styled-blockquote">
+                    La cybersécurité n'est pas qu'une affaire de technologie. C'est une culture, une vigilance collective où chaque collaborateur devient un maillon fort de la chaîne de protection.
                 </div>
 
                 <!-- Section: Compétences -->

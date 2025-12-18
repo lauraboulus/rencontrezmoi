@@ -314,3 +314,167 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// ==================== BARRE DE PROGRESSION LECTURE ====================
+if (document.querySelector('.project-detail-page')) {
+    window.addEventListener('scroll', function() {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        
+        // Créer la barre si elle n'existe pas
+        let progressBar = document.querySelector('.reading-progress-bar');
+        if (!progressBar) {
+            progressBar = document.createElement('div');
+            progressBar.className = 'reading-progress-bar';
+            progressBar.style.cssText = `
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: ${scrolled}%;
+                height: 3px;
+                background: linear-gradient(90deg, var(--primary), var(--secondary));
+                z-index: 9999;
+                transition: width 0.1s ease;
+            `;
+            document.body.appendChild(progressBar);
+        } else {
+            progressBar.style.width = scrolled + '%';
+        }
+    });
+}
+
+// ==================== ANIMATIONS PAGES DÉTAILS ====================
+
+// Intersection Observer pour animations au scroll
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const fadeInObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
+
+// Observer tous les éléments qui doivent apparaître
+document.addEventListener('DOMContentLoaded', function() {
+    // Éléments à observer
+    const elementsToObserve = document.querySelectorAll('.content-section, .skill-detail-card, .impact-card');
+    elementsToObserve.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        fadeInObserver.observe(el);
+    });
+
+    // Accordions
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
+    accordionHeaders.forEach(header => {
+        header.addEventListener('click', function() {
+            const accordionItem = this.parentElement;
+            const isActive = accordionItem.classList.contains('active');
+            
+            // Fermer tous les autres
+            document.querySelectorAll('.accordion-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Toggle celui cliqué
+            if (!isActive) {
+                accordionItem.classList.add('active');
+            }
+        });
+    });
+
+    // Animation des progress bars
+    const progressBars = document.querySelectorAll('.skill-progress-fill');
+    const progressObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const width = entry.target.getAttribute('data-width');
+                entry.target.style.width = width;
+            }
+        });
+    }, observerOptions);
+
+    progressBars.forEach(bar => {
+        bar.style.width = '0%';
+        progressObserver.observe(bar);
+    });
+
+    // Parallax subtil sur les cards
+    const parallaxCards = document.querySelectorAll('.parallax-card');
+    document.addEventListener('mousemove', (e) => {
+        parallaxCards.forEach(card => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = (y - centerY) / 20;
+            const rotateY = (centerX - x) / 20;
+            
+            if (x >= 0 && x <= rect.width && y >= 0 && y <= rect.height) {
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+            } else {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+            }
+        });
+    });
+
+    // Smooth scroll pour les ancres
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href !== '#' && href.length > 1) {
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        });
+    });
+
+    // Animation de compteur pour les stats
+    const animateCounter = (element, target, duration = 2000) => {
+        let start = 0;
+        const increment = target / (duration / 16);
+        
+        const timer = setInterval(() => {
+            start += increment;
+            if (start >= target) {
+                element.textContent = target;
+                clearInterval(timer);
+            } else {
+                element.textContent = Math.floor(start);
+            }
+        }, 16);
+    };
+
+    // Observer pour les stats
+    const statNumbers = document.querySelectorAll('.stat-number');
+    const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+                const target = parseInt(entry.target.getAttribute('data-target'));
+                animateCounter(entry.target, target);
+                entry.target.classList.add('animated');
+            }
+        });
+    }, observerOptions);
+
+    statNumbers.forEach(stat => {
+        statsObserver.observe(stat);
+    });
+});
