@@ -1,39 +1,52 @@
-// ==================== SYSTÈME DE NAVIGATION CORRIGÉ ====================
+// ==================== NAVIGATION PAR SECTIONS ====================
 
-// 1. NAVIGATION PAR PAGES (priorité absolue)
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('✅ Script chargé');
+    
+    // Initialiser toutes les fonctionnalités
+    initPageNavigation();
+    initFilters();
+    initMobileMenu();
+    initScrollAnimations();
+    initNavbarScroll();
+    initContactForm();
+});
+
+// ==================== 1. NAVIGATION PAR PAGES ====================
 function initPageNavigation() {
     const pageLinks = document.querySelectorAll('a[href^="#"]');
     const pageSections = document.querySelectorAll('.page-section');
     
+    console.log('Navigation: sections trouvées =', pageSections.length);
+    
     function navigateToPage(targetId) {
-        console.log('🔍 Navigation vers:', targetId);
+        console.log('Navigation vers:', targetId);
         
+        // Désactiver toutes les sections
         pageSections.forEach(section => {
             section.classList.remove('active');
         });
         
+        // Activer la section cible
         const targetSection = document.querySelector(targetId);
-        if (targetSection) {
+        if (targetSection && targetSection.classList.contains('page-section')) {
             targetSection.classList.add('active');
             targetSection.scrollTop = 0;
-            
-            // Scroll vers le haut de la page
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
             history.pushState(null, '', targetId);
+            console.log('✅ Section activée:', targetId);
         }
     }
     
+    // Ajouter les événements sur les liens
     pageLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            const targetId = link.getAttribute('href');
+        link.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
             
-            // Ne bloquer QUE les liens vers des sections internes
+            // Vérifier si c'est un lien vers une section interne
             if (targetId && targetId.startsWith('#') && targetId.length > 1) {
                 const targetSection = document.querySelector(targetId);
+                
                 if (targetSection && targetSection.classList.contains('page-section')) {
                     e.preventDefault();
                     e.stopPropagation();
@@ -48,7 +61,6 @@ function initPageNavigation() {
                     }
                 }
             }
-            // Les liens externes (sans #) ou vers des fichiers HTML fonctionneront normalement
         });
     });
     
@@ -63,55 +75,42 @@ function initPageNavigation() {
     navigateToPage(initialHash);
 }
 
-document.addEventListener('DOMContentLoaded', initPageNavigation);
-
-// 2. FILTRES RÉALISATIONS (après navigation)
-document.addEventListener('DOMContentLoaded', function() {
+// ==================== 2. FILTRES RÉALISATIONS ====================
+function initFilters() {
     setTimeout(function() {
         const categoryBtns = document.querySelectorAll('.category-btn');
         const projectCards = document.querySelectorAll('.project-showcase-card');
-
-        console.log('🎨 Filtres - Boutons:', categoryBtns.length, 'Cards:', projectCards.length);
-
+        
+        console.log('Filtres: boutons =', categoryBtns.length, 'cartes =', projectCards.length);
+        
         categoryBtns.forEach(btn => {
             btn.addEventListener('click', function(e) {
                 e.preventDefault();
                 e.stopPropagation();
                 
                 const category = this.getAttribute('data-category');
-                console.log('✅ Filtre cliqué:', category);
+                console.log('Filtre sélectionné:', category);
                 
+                // Activer le bouton
                 categoryBtns.forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
                 
+                // Filtrer les cartes
                 projectCards.forEach(card => {
                     const cardCategory = card.getAttribute('data-category');
                     if (category === 'all' || cardCategory === category) {
                         card.style.display = 'grid';
-                        card.style.animation = 'fadeInUp 0.6s ease backwards';
                     } else {
                         card.style.display = 'none';
                     }
                 });
             });
         });
-    }, 500);
-});
+    }, 300);
+}
 
-// 3. NAVBAR SCROLL
-window.addEventListener('scroll', function() {
-    const navbar = document.getElementById('navbar');
-    if (navbar) {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    }
-});
-
-// 4. MENU MOBILE
-document.addEventListener('DOMContentLoaded', function() {
+// ==================== 3. MENU MOBILE ====================
+function initMobileMenu() {
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
     
@@ -122,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
             navMenu.classList.toggle('active');
         });
         
-        // Fermer le menu quand on clique en dehors
+        // Fermer le menu en cliquant dehors
         document.addEventListener('click', function(e) {
             if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
                 navToggle.classList.remove('active');
@@ -130,15 +129,15 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-});
+}
 
-// 5. ANIMATIONS AU SCROLL (dans chaque page-section)
-document.addEventListener('DOMContentLoaded', function() {
+// ==================== 4. ANIMATIONS AU SCROLL ====================
+function initScrollAnimations() {
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     };
-
+    
     const fadeInObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -147,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }, observerOptions);
-
+    
     const elementsToObserve = document.querySelectorAll('.timeline-item, .value-card, .skill-hex-card');
     elementsToObserve.forEach(el => {
         el.style.opacity = '0';
@@ -155,33 +154,40 @@ document.addEventListener('DOMContentLoaded', function() {
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         fadeInObserver.observe(el);
     });
-});
+}
 
-// 6. GESTION DU FORMULAIRE DE CONTACT
-document.addEventListener('DOMContentLoaded', function() {
+// ==================== 5. NAVBAR SCROLL ====================
+function initNavbarScroll() {
+    window.addEventListener('scroll', function() {
+        const navbar = document.getElementById('navbar');
+        if (navbar) {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        }
+    });
+}
+
+// ==================== 6. FORMULAIRE DE CONTACT ====================
+function initContactForm() {
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Récupération des données du formulaire
             const formData = new FormData(this);
             const name = formData.get('name');
             const email = formData.get('email');
             const message = formData.get('message');
             
-            // Ici vous pouvez ajouter la logique d'envoi du formulaire
-            // Par exemple via EmailJS, Formspree, ou votre propre API
-            
             console.log('Formulaire soumis:', { name, email, message });
             
-            // Afficher un message de confirmation
             alert('Merci pour votre message ! Je vous répondrai dans les plus brefs délais.');
-            
-            // Réinitialiser le formulaire
             this.reset();
         });
     }
-});
+}
 
-console.log('✅ Script chargé - Navigation corrigée et optimisée');
+console.log('✅ Script entièrement initialisé');
