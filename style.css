@@ -2039,3 +2039,107 @@ strong {
 @media (prefers-color-scheme: dark) {
     /* Pour une future implémentation du dark mode */
 }
+
+/* ==================== TIMELINE DUAL COLUMNS ==================== */
+.timeline-dual {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.timeline-column-title {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    color: var(--primary);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--secondary);
+}
+
+.timeline-logo {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 8px;
+    padding: 0.5rem;
+    box-shadow: 0 2px 8px rgba(26, 58, 82, 0.1);
+}
+
+.timeline-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Responsive Timeline */
+@media (max-width: 1024px) {
+    .timeline-dual {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+/* ==================== TIMELINE IMPROVEMENTS ==================== */
+.timeline-logo {
+    width: 80px;
+    height: 50px;
+    margin-bottom: var(--spacing-xs);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.timeline-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    filter: grayscale(20%);
+    transition: all var(--transition-base);
+}
+
+.timeline-item:hover .timeline-logo img {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+}
+
+.timeline-column-title {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    color: var(--primary);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 2px solid var(--secondary);
+}
+
+.timeline-column-title svg {
+    color: var(--secondary);
+}
+
+.timeline-dual {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+}
+
+@media (max-width: 768px) {
+    .timeline-dual {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .timeline-logo {
+        width: 70px;
+        height: 45px;
+    }
+}
