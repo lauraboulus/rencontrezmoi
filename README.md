@@ -11,13 +11,6 @@
 7. Logo_ESIEA_2020.png - Logo ESIEA
 8. logo-thomgroup.svg - Logo Thom Group
 
-## Installation
-
-1. Téléchargez tous les fichiers
-2. Placez-les dans le même dossier
-3. Uploadez sur GitHub : rencontrezmoi repository
-4. Visitez : https://lauraboulus.github.io/rencontrezmoi/
-
 ## Sections du Portfolio
 
 - Hero / Qui suis-je
