@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initScrollAnimations();
     initNavbarScroll();
     initContactForm();
+    initProjectButtons(); // Nouvelle fonction pour les boutons de projet
 });
 
 // ==================== 1. NAVIGATION PAR PAGES ====================
@@ -188,6 +189,34 @@ function initContactForm() {
             this.reset();
         });
     }
+}
+
+// ==================== 7. BOUTONS DE PROJET ====================
+function initProjectButtons() {
+    // Forcer le fonctionnement des boutons "Découvrir le projet"
+    const projectButtons = document.querySelectorAll('.project-cta');
+    
+    console.log('Boutons projet trouvés:', projectButtons.length);
+    
+    projectButtons.forEach(button => {
+        // Empêcher la propagation du clic sur le bouton vers la carte parente
+        button.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const href = this.getAttribute('href');
+            console.log('Clic sur bouton projet, navigation vers:', href);
+            
+            // Navigation directe
+            if (href) {
+                window.location.href = href;
+            }
+        });
+    });
+    
+    // S'assurer que les cartes de projet ne bloquent pas les clics sur les boutons
+    const projectCards = document.querySelectorAll('.project-showcase-card');
+    projectCards.forEach(card => {
+        card.style.cursor = 'default';
+    });
 }
 
 console.log('✅ Script entièrement initialisé');
