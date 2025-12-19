@@ -38,15 +38,10 @@ function initPageNavigation() {
         }
     }
     
-    // Ajouter les événements sur les liens
+    // Ajouter les événements sur les liens UNIQUEMENT pour les ancres
     pageLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             const targetId = this.getAttribute('href');
-            
-            // Ignorer les boutons "Découvrir le projet" 
-            if (this.classList.contains('project-cta')) {
-                return; // Laisser le comportement par défaut
-            }
             
             // Vérifier si c'est un lien vers une section interne
             if (targetId && targetId.startsWith('#') && targetId.length > 1) {
