@@ -359,21 +359,49 @@ function initPhotoModal() {
     
     // Ajouter le modal au body
     document.body.insertAdjacentHTML('beforeend', modalHTML);
+    console.log('✅ Modal HTML ajouté au DOM');
     
-    // Sélectionner les éléments
-    const photoImage = document.querySelector('.profile-image img');
+    // Sélectionner les éléments - avec plusieurs sélecteurs pour trouver la photo
+    let photoImage = document.querySelector('.profile-image img');
+    
+    if (!photoImage) {
+        console.log('⚠️ Tentative avec un autre sélecteur...');
+        photoImage = document.querySelector('.hero-visual img');
+    }
+    
+    if (!photoImage) {
+        console.log('⚠️ Tentative avec img[alt="Laura Boulus"]...');
+        photoImage = document.querySelector('img[alt="Laura Boulus"]');
+    }
+    
+    console.log('Photo trouvée:', photoImage ? '✅ OUI' : '❌ NON');
+    
     const modal = document.getElementById('photoModal');
     const closeBtn = modal.querySelector('.photo-modal-close');
     const overlay = modal.querySelector('.photo-modal-overlay');
     
+    console.log('Modal trouvé:', modal ? '✅ OUI' : '❌ NON');
+    console.log('Bouton fermer trouvé:', closeBtn ? '✅ OUI' : '❌ NON');
+    console.log('Overlay trouvé:', overlay ? '✅ OUI' : '❌ NON');
+    
     // Ouvrir le modal au clic sur la photo
     if (photoImage) {
         photoImage.style.cursor = 'pointer';
-        photoImage.addEventListener('click', function() {
+        console.log('✅ Cursor "pointer" appliqué à la photo');
+        
+        photoImage.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('📸 CLIC DÉTECTÉ sur la photo !');
             console.log('📸 Ouverture du modal photo');
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
+            console.log('Modal classes:', modal.className);
         });
+        
+        console.log('✅ Event listener ajouté sur la photo');
+    } else {
+        console.error('❌ ERREUR : Photo non trouvée ! Le modal ne pourra pas s\'ouvrir.');
     }
     
     // Fermer le modal
@@ -383,8 +411,15 @@ function initPhotoModal() {
         document.body.style.overflow = '';
     }
     
-    closeBtn.addEventListener('click', closeModal);
-    overlay.addEventListener('click', closeModal);
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeModal);
+        console.log('✅ Event listener ajouté sur le bouton fermer');
+    }
+    
+    if (overlay) {
+        overlay.addEventListener('click', closeModal);
+        console.log('✅ Event listener ajouté sur l\'overlay');
+    }
     
     // Fermer avec Échap
     document.addEventListener('keydown', function(e) {
