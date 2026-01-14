@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initContactForm();
     initProjectButtons(); // Nouvelle fonction pour les boutons de projet
     initTooltips(); // Initialisation des tooltips pour les adjectifs
+    initPhotoModal(); // Initialisation du modal photo
 });
 
 // ==================== 1. NAVIGATION PAR PAGES ====================
@@ -323,6 +324,76 @@ function initTooltips() {
     });
     
     console.log('✨ Tooltips initialisés !');
+}
+
+// ==================== 9. MODAL PHOTO À PROPOS ====================
+function initPhotoModal() {
+    console.log('📸 Initialisation du modal photo...');
+    
+    // Créer le modal
+    const modalHTML = `
+        <div id="photoModal" class="photo-modal">
+            <div class="photo-modal-overlay"></div>
+            <div class="photo-modal-content">
+                <button class="photo-modal-close">&times;</button>
+                <div class="photo-modal-body">
+                    <h2 class="photo-modal-title">Laura Boulus</h2>
+                    <p class="photo-modal-subtitle">Passionnée de cybersécurité, engagée pour l'humain</p>
+                    
+                    <div class="photo-modal-text">
+                        <p>Je suis Laura, animée par la curiosité et l'envie d'apprendre. Pour moi, la cybersécurité ne se limite pas à la technique : c'est avant tout une question de confiance, de pédagogie et d'humain.</p>
+                        
+                        <h3>Ce qui me motive</h3>
+                        <p>Protéger les systèmes tout en créant du lien. J'aime vulgariser des concepts complexes, sensibiliser les équipes et transformer la sécurité en culture d'entreprise accessible à tous.</p>
+                        
+                        <h3>Mon engagement</h3>
+                        <p>Au-delà du professionnel, je m'investis auprès d'associations solidaires. Cet équilibre entre expertise technique et contribution sociale me définit.</p>
+                        
+                        <h3>Ma vision</h3>
+                        <p>Devenir une experte capable d'allier rigueur technique et coordination stratégique, tout en portant des projets qui ont du sens. Mon ambition : contribuer à bâtir une sécurité numérique solide et humaine.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    // Ajouter le modal au body
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+    
+    // Sélectionner les éléments
+    const photoImage = document.querySelector('.profile-image img');
+    const modal = document.getElementById('photoModal');
+    const closeBtn = modal.querySelector('.photo-modal-close');
+    const overlay = modal.querySelector('.photo-modal-overlay');
+    
+    // Ouvrir le modal au clic sur la photo
+    if (photoImage) {
+        photoImage.style.cursor = 'pointer';
+        photoImage.addEventListener('click', function() {
+            console.log('📸 Ouverture du modal photo');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    }
+    
+    // Fermer le modal
+    function closeModal() {
+        console.log('❌ Fermeture du modal photo');
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', closeModal);
+    
+    // Fermer avec Échap
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+    
+    console.log('✅ Modal photo initialisé !');
 }
 
 console.log('✅ Script entièrement initialisé');
