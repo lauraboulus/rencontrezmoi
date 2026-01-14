@@ -490,7 +490,7 @@ strong {
     transition: all var(--transition-base);
     border: 2px solid transparent;
     position: relative;
-    overflow: hidden;
+    /* overflow: hidden; */ /* Désactivé pour permettre l'affichage des tooltips */
 }
 
 .tag::before {
@@ -5562,6 +5562,11 @@ body {
     position: relative;
     cursor: pointer;
     transition: transform 0.3s ease;
+}
+
+/* Ne pas appliquer le hover du tag parent au conteneur */
+.hero-tags .adjective-container .tag {
+    overflow: visible !important; /* Forcer visible pour les tooltips */
 }
 
 .hero-tags .adjective-container:hover {
