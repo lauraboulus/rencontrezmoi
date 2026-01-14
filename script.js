@@ -229,11 +229,39 @@ function initTooltips() {
     
     console.log('📌 Nombre de conteneurs trouvés:', adjectiveContainers.length);
     
+    // Définir les dégradés de bleu pour chaque tooltip
+    const tooltipColors = {
+        'adjective-rigoureuse': {
+            gradient: 'linear-gradient(135deg, #1a3a52 0%, #2c5f7f 100%)', // Bleu marine foncé
+            arrowColor: '#2c5f7f'
+        },
+        'adjective-collaborative': {
+            gradient: 'linear-gradient(135deg, #2c5f7f 0%, #4D96FF 100%)', // Bleu marine vers bleu clair
+            arrowColor: '#4D96FF'
+        },
+        'adjective-engagee': {
+            gradient: 'linear-gradient(135deg, #4D96FF 0%, #6BB6FF 100%)', // Bleu clair lumineux
+            arrowColor: '#6BB6FF'
+        }
+    };
+    
     adjectiveContainers.forEach((container, index) => {
         const tooltip = container.querySelector('.tooltip');
         
         if (tooltip) {
             console.log(`✅ Tooltip ${index + 1} trouvé`);
+            
+            // Déterminer la couleur du dégradé selon la classe du conteneur
+            let gradientColor = tooltipColors['adjective-rigoureuse'].gradient;
+            let arrowColor = tooltipColors['adjective-rigoureuse'].arrowColor;
+            
+            if (container.classList.contains('adjective-collaborative')) {
+                gradientColor = tooltipColors['adjective-collaborative'].gradient;
+                arrowColor = tooltipColors['adjective-collaborative'].arrowColor;
+            } else if (container.classList.contains('adjective-engagee')) {
+                gradientColor = tooltipColors['adjective-engagee'].gradient;
+                arrowColor = tooltipColors['adjective-engagee'].arrowColor;
+            }
             
             // S'assurer que le tooltip est caché par défaut
             tooltip.style.display = 'none';
@@ -242,17 +270,30 @@ function initTooltips() {
             tooltip.style.left = '50%';
             tooltip.style.transform = 'translateX(-50%)';
             tooltip.style.zIndex = '10000';
-            tooltip.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+            tooltip.style.background = gradientColor;
             tooltip.style.color = 'white';
             tooltip.style.padding = '15px 20px';
             tooltip.style.borderRadius = '12px';
-            tooltip.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.3)';
+            tooltip.style.boxShadow = '0 10px 30px rgba(26, 58, 82, 0.3)';
             tooltip.style.width = '300px';
             tooltip.style.maxWidth = '90vw';
             tooltip.style.fontSize = '14px';
             tooltip.style.lineHeight = '1.6';
             tooltip.style.textAlign = 'center';
             tooltip.style.pointerEvents = 'none';
+            
+            // Créer la flèche du tooltip
+            const arrow = document.createElement('div');
+            arrow.style.position = 'absolute';
+            arrow.style.top = '100%';
+            arrow.style.left = '50%';
+            arrow.style.transform = 'translateX(-50%)';
+            arrow.style.width = '0';
+            arrow.style.height = '0';
+            arrow.style.borderLeft = '10px solid transparent';
+            arrow.style.borderRight = '10px solid transparent';
+            arrow.style.borderTop = `10px solid ${arrowColor}`;
+            tooltip.appendChild(arrow);
             
             // Événement mouseenter (survol)
             container.addEventListener('mouseenter', function() {
