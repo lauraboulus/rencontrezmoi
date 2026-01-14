@@ -95,7 +95,7 @@
                 <div class="hero-visual">
                     <div class="profile-card">
                         <div class="profile-image">
-                            <img src="photo_linkedin.png" alt="Laura Boulus">
+                            <img src="photo_linkedin.png" alt="Laura Boulus" onclick="document.getElementById('photoModal').classList.add('active'); document.body.style.overflow='hidden';" style="cursor: pointer;">
                             <div class="profile-ring"></div>
                             <div class="profile-glow"></div>
                         </div>
@@ -664,6 +664,31 @@
             </div>
         </div>
     </section>
+
+    <!-- Modal Photo À Propos -->
+    <div id="photoModal" class="photo-modal">
+        <div class="photo-modal-overlay"></div>
+        <div class="photo-modal-content">
+            <button class="photo-modal-close">&times;</button>
+            <div class="photo-modal-body">
+                <h2 class="photo-modal-title">Laura Boulus</h2>
+                <p class="photo-modal-subtitle">Passionnée de cybersécurité, engagée pour l'humain</p>
+                
+                <div class="photo-modal-text">
+                    <p>Je suis Laura, animée par la curiosité et l'envie d'apprendre. Pour moi, la cybersécurité ne se limite pas à la technique : c'est avant tout une question de confiance, de pédagogie et d'humain.</p>
+                    
+                    <h3>Ce qui me motive</h3>
+                    <p>Protéger les systèmes tout en créant du lien. J'aime vulgariser des concepts complexes, sensibiliser les équipes et transformer la sécurité en culture d'entreprise accessible à tous.</p>
+                    
+                    <h3>Mon engagement</h3>
+                    <p>Au-delà du professionnel, je m'investis auprès d'associations solidaires. Cet équilibre entre expertise technique et contribution sociale me définit.</p>
+                    
+                    <h3>Ma vision</h3>
+                    <p>Devenir une experte capable d'allier rigueur technique et coordination stratégique, tout en portant des projets qui ont du sens. Mon ambition : contribuer à bâtir une sécurité numérique solide et humaine.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Script JavaScript -->
     <script src="script.js"></script>
