@@ -1,0 +1,104 @@
+/* ==================== TOOLTIPS POUR ADJECTIFS ==================== */
+
+/* Conteneur des adjectifs avec tooltip */
+.adjective-container {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.adjective-container:hover {
+    transform: translateY(-3px);
+}
+
+/* Style du tooltip */
+.adjective-container .tooltip {
+    position: absolute;
+    bottom: calc(100% + 15px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    width: 300px;
+    max-width: 90vw;
+    z-index: 1000;
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: center;
+    pointer-events: none;
+    font-family: var(--font-body);
+}
+
+/* Flèche du tooltip */
+.adjective-container .tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 10px solid transparent;
+    border-top-color: #764ba2;
+}
+
+/* Affichage du tooltip au survol */
+.adjective-container:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    bottom: calc(100% + 20px);
+}
+
+/* Couleurs personnalisées pour chaque adjectif */
+.adjective-rigoureuse .tooltip {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.adjective-rigoureuse .tooltip::after {
+    border-top-color: #764ba2;
+}
+
+.adjective-collaborative .tooltip {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.adjective-collaborative .tooltip::after {
+    border-top-color: #f5576c;
+}
+
+.adjective-engagee .tooltip {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.adjective-engagee .tooltip::after {
+    border-top-color: #00f2fe;
+}
+
+/* Responsive pour mobile */
+@media (max-width: 768px) {
+    .adjective-container .tooltip {
+        width: 250px;
+        font-size: 13px;
+        padding: 12px 15px;
+    }
+    
+    .adjective-container .tooltip::after {
+        border-width: 8px;
+    }
+}
+
+/* Animation supplémentaire pour rendre l'effet plus fluide */
+@media (hover: hover) and (pointer: fine) {
+    .adjective-container .adjective-text {
+        transition: all 0.3s ease;
+    }
+    
+    .adjective-container:hover .adjective-text {
+        transform: scale(1.05);
+    }
+}
