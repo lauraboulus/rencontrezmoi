@@ -1,21 +1,22 @@
 /* ==================== TOOLTIPS POUR ADJECTIFS ==================== */
 
 /* Conteneur des adjectifs avec tooltip */
-.adjective-container {
+.hero-tags .adjective-container {
     display: inline-block;
     position: relative;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
 
-.adjective-container:hover {
+.hero-tags .adjective-container:hover {
     transform: translateY(-3px);
 }
 
-/* Style du tooltip - MASQUÉ PAR DÉFAUT */
+/* Style du tooltip - MASQUÉ PAR DÉFAUT avec display: none */
 .hero-tags .adjective-container .tooltip {
-    position: absolute !important;
-    bottom: calc(100% + 15px);
+    display: none !important;
+    position: absolute;
+    bottom: calc(100% + 20px);
     left: 50%;
     transform: translateX(-50%);
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -23,10 +24,6 @@
     padding: 15px 20px;
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    opacity: 0 !important;
-    visibility: hidden !important;
-    display: block !important;
-    transition: all 0.3s ease;
     width: 300px;
     max-width: 90vw;
     z-index: 10000;
@@ -35,10 +32,11 @@
     text-align: center;
     pointer-events: none;
     font-family: var(--font-body);
+    white-space: normal;
 }
 
 /* Flèche du tooltip */
-.adjective-container .tooltip::after {
+.hero-tags .adjective-container .tooltip::after {
     content: '';
     position: absolute;
     top: 100%;
@@ -50,9 +48,20 @@
 
 /* Affichage du tooltip au survol - VISIBLE UNIQUEMENT AU HOVER */
 .hero-tags .adjective-container:hover .tooltip {
-    opacity: 1 !important;
-    visibility: visible !important;
-    bottom: calc(100% + 20px);
+    display: block !important;
+    animation: fadeInTooltip 0.3s ease forwards;
+}
+
+/* Animation d'apparition */
+@keyframes fadeInTooltip {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
 }
 
 /* Couleurs personnalisées pour chaque adjectif */
@@ -95,11 +104,11 @@
 
 /* Animation supplémentaire pour rendre l'effet plus fluide */
 @media (hover: hover) and (pointer: fine) {
-    .adjective-container .adjective-text {
+    .hero-tags .adjective-container .adjective-text {
         transition: all 0.3s ease;
     }
     
-    .adjective-container:hover .adjective-text {
+    .hero-tags .adjective-container:hover .adjective-text {
         transform: scale(1.05);
     }
 }
