@@ -5553,3 +5553,118 @@ body {
 .category-btn {
     will-change: transform;
 }
+
+/* ==================== TOOLTIPS POUR ADJECTIFS ==================== */
+
+/* Conteneur des adjectifs avec tooltip */
+.hero-tags .adjective-container {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.hero-tags .adjective-container:hover {
+    transform: translateY(-3px);
+}
+
+/* Style du tooltip - MASQUÉ PAR DÉFAUT avec display: none */
+.hero-tags .adjective-container .tooltip {
+    display: none !important;
+    position: absolute;
+    bottom: calc(100% + 20px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    width: 300px;
+    max-width: 90vw;
+    z-index: 10000;
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: center;
+    pointer-events: none;
+    font-family: var(--font-body);
+    white-space: normal;
+}
+
+/* Flèche du tooltip */
+.hero-tags .adjective-container .tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 10px solid transparent;
+    border-top-color: #764ba2;
+}
+
+/* Affichage du tooltip au survol - VISIBLE UNIQUEMENT AU HOVER */
+.hero-tags .adjective-container:hover .tooltip {
+    display: block !important;
+    animation: fadeInTooltip 0.3s ease forwards;
+}
+
+/* Animation d'apparition */
+@keyframes fadeInTooltip {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* Couleurs personnalisées pour chaque adjectif */
+.hero-tags .adjective-rigoureuse .tooltip {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.hero-tags .adjective-rigoureuse .tooltip::after {
+    border-top-color: #764ba2;
+}
+
+.hero-tags .adjective-collaborative .tooltip {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.hero-tags .adjective-collaborative .tooltip::after {
+    border-top-color: #f5576c;
+}
+
+.hero-tags .adjective-engagee .tooltip {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.hero-tags .adjective-engagee .tooltip::after {
+    border-top-color: #00f2fe;
+}
+
+/* Responsive pour mobile */
+@media (max-width: 768px) {
+    .hero-tags .adjective-container .tooltip {
+        width: 250px;
+        font-size: 13px;
+        padding: 12px 15px;
+    }
+    
+    .hero-tags .adjective-container .tooltip::after {
+        border-width: 8px;
+    }
+}
+
+/* Animation supplémentaire pour rendre l'effet plus fluide */
+@media (hover: hover) and (pointer: fine) {
+    .hero-tags .adjective-container .adjective-text {
+        transition: all 0.3s ease;
+    }
+    
+    .hero-tags .adjective-container:hover .adjective-text {
+        transform: scale(1.05);
+    }
+}
