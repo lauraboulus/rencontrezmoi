@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initNavbarScroll();
     initContactForm();
     initProjectButtons(); // Nouvelle fonction pour les boutons de projet
+    initTooltips(); // Initialisation des tooltips pour les adjectifs
 });
 
 // ==================== 1. NAVIGATION PAR PAGES ====================
@@ -217,6 +218,70 @@ function initProjectButtons() {
     projectCards.forEach(card => {
         card.style.cursor = 'default';
     });
+}
+
+// ==================== 8. TOOLTIPS POUR ADJECTIFS ====================
+function initTooltips() {
+    console.log('🎯 Initialisation des tooltips...');
+    
+    // Sélectionner tous les conteneurs d'adjectifs
+    const adjectiveContainers = document.querySelectorAll('.hero-tags .adjective-container');
+    
+    console.log('📌 Nombre de conteneurs trouvés:', adjectiveContainers.length);
+    
+    adjectiveContainers.forEach((container, index) => {
+        const tooltip = container.querySelector('.tooltip');
+        
+        if (tooltip) {
+            console.log(`✅ Tooltip ${index + 1} trouvé`);
+            
+            // S'assurer que le tooltip est caché par défaut
+            tooltip.style.display = 'none';
+            tooltip.style.position = 'absolute';
+            tooltip.style.bottom = 'calc(100% + 20px)';
+            tooltip.style.left = '50%';
+            tooltip.style.transform = 'translateX(-50%)';
+            tooltip.style.zIndex = '10000';
+            tooltip.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+            tooltip.style.color = 'white';
+            tooltip.style.padding = '15px 20px';
+            tooltip.style.borderRadius = '12px';
+            tooltip.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.3)';
+            tooltip.style.width = '300px';
+            tooltip.style.maxWidth = '90vw';
+            tooltip.style.fontSize = '14px';
+            tooltip.style.lineHeight = '1.6';
+            tooltip.style.textAlign = 'center';
+            tooltip.style.pointerEvents = 'none';
+            
+            // Événement mouseenter (survol)
+            container.addEventListener('mouseenter', function() {
+                console.log('🖱️ Survol sur tooltip', index + 1);
+                tooltip.style.display = 'block';
+                tooltip.style.opacity = '0';
+                
+                // Animation d'apparition
+                setTimeout(() => {
+                    tooltip.style.transition = 'opacity 0.3s ease';
+                    tooltip.style.opacity = '1';
+                }, 10);
+            });
+            
+            // Événement mouseleave (sortie)
+            container.addEventListener('mouseleave', function() {
+                console.log('👋 Sortie du survol', index + 1);
+                tooltip.style.opacity = '0';
+                
+                setTimeout(() => {
+                    tooltip.style.display = 'none';
+                }, 300);
+            });
+        } else {
+            console.log(`❌ Tooltip ${index + 1} NON trouvé`);
+        }
+    });
+    
+    console.log('✨ Tooltips initialisés !');
 }
 
 console.log('✅ Script entièrement initialisé');
