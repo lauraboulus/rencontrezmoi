@@ -5850,3 +5850,22 @@ body {
         font-size: 1.2rem;
     }
 }
+
+/* ==================== FIX POUR MODAL PHOTO CLIQUABLE ==================== */
+
+/* Rendre la photo cliquable en empêchant les éléments décoratifs de bloquer le clic */
+.profile-image {
+    cursor: pointer !important;
+    position: relative;
+}
+
+.profile-ring,
+.profile-glow {
+    pointer-events: none !important;
+}
+
+/* Assurer que toute la zone de l'image est cliquable */
+.profile-image img {
+    position: relative;
+    z-index: 1;
+}
