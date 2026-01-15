@@ -1,0 +1,345 @@
+/* ==================== MODALS COMPÉTENCES - DESIGN ÉPURÉ ET CHIC ==================== */
+
+/* === STRUCTURE DU MODAL === */
+
+.modal-content {
+    max-width: 850px;
+    padding: 0;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(26, 58, 82, 0.15);
+}
+
+/* === EN-TÊTE DU MODAL === */
+
+.modal-header {
+    background: linear-gradient(135deg, #1a3a52 0%, #2c5f7f 100%);
+    color: white;
+    padding: 48px 56px;
+    text-align: center;
+    position: relative;
+}
+
+.modal-icon {
+    font-size: 3.5em;
+    margin-bottom: 16px;
+    display: block;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+.modal-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2em;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 12px;
+    line-height: 1.2;
+}
+
+.modal-subtitle {
+    font-size: 1.1em;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 400;
+    margin: 0;
+}
+
+/* === CORPS DU MODAL === */
+
+#modalBody {
+    padding: 48px 56px;
+    background: white;
+}
+
+.modal-section {
+    margin-bottom: 48px;
+    position: relative;
+}
+
+.modal-section:last-child {
+    margin-bottom: 0;
+}
+
+.modal-section h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4em;
+    color: #1a3a52;
+    margin-bottom: 20px;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 12px;
+}
+
+/* Ligne subtile sous les titres */
+.modal-section h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #4D96FF 0%, transparent 100%);
+    border-radius: 2px;
+}
+
+.modal-section p {
+    line-height: 1.8;
+    color: #4a4a4a;
+    margin-bottom: 20px;
+    font-size: 1.02em;
+}
+
+/* === LISTES ÉPURÉES === */
+
+.modal-list {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0;
+}
+
+.modal-list li {
+    position: relative;
+    padding-left: 32px;
+    margin-bottom: 18px;
+    line-height: 1.7;
+    color: #4a4a4a;
+    font-size: 1.02em;
+}
+
+/* Puces élégantes */
+.modal-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 8px;
+    height: 8px;
+    background: linear-gradient(135deg, #4D96FF 0%, #2c5f7f 100%);
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(77, 150, 255, 0.3);
+}
+
+/* === CONCLUSIONS / CITATIONS === */
+
+.modal-conclusion {
+    margin-top: 28px;
+    padding: 24px 28px;
+    background: linear-gradient(135deg, #f8fbff 0%, #f0f7ff 100%);
+    border-left: 4px solid #4D96FF;
+    border-radius: 8px;
+    font-style: italic;
+    color: #2c5f7f;
+    line-height: 1.8;
+    box-shadow: 0 2px 12px rgba(77, 150, 255, 0.06);
+}
+
+/* === NIVEAUX DE LECTURE - MOTS-CLÉS === */
+
+/* Mots-clés techniques (bleu marine) */
+.modal-section .highlight-tech,
+.modal-list .highlight-tech {
+    color: #1a3a52;
+    font-weight: 600;
+    position: relative;
+}
+
+/* Soft skills (bleu clair) */
+.modal-section .highlight-soft,
+.modal-list .highlight-soft {
+    color: #2c5f7f;
+    font-weight: 600;
+}
+
+/* Concepts importants (noir renforcé) */
+.modal-section .highlight-keyword,
+.modal-list .highlight-keyword {
+    color: #1a3a52;
+    font-weight: 700;
+}
+
+/* Gras simple pour actions */
+.modal-section strong,
+.modal-list strong {
+    font-weight: 600;
+    color: #2d2d2d;
+}
+
+/* === ENCADRÉS SUBTILS (USAGE MODÉRÉ) === */
+
+/* Encadré info - usage rare, pour points vraiment clés */
+.modal-info-box {
+    margin: 32px 0;
+    padding: 24px 28px;
+    background: linear-gradient(to right, rgba(77, 150, 255, 0.04), transparent);
+    border-left: 3px solid #4D96FF;
+    border-radius: 8px;
+}
+
+.modal-info-box strong {
+    color: #1a3a52;
+    font-weight: 700;
+    font-size: 1.05em;
+}
+
+/* === SÉPARATEURS ÉLÉGANTS === */
+
+.modal-section + .modal-section {
+    padding-top: 48px;
+    border-top: 1px solid rgba(26, 58, 82, 0.08);
+}
+
+/* === BOUTON DE FERMETURE === */
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.modal-close:hover {
+    background: white;
+    color: #1a3a52;
+    transform: rotate(90deg) scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* === SCROLLBAR PERSONNALISÉE === */
+
+.modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: #f5f1e8;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #4D96FF 0%, #2c5f7f 100%);
+    border-radius: 10px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #2c5f7f 0%, #1a3a52 100%);
+}
+
+/* === RESPONSIVE === */
+
+@media (max-width: 768px) {
+    .modal-header {
+        padding: 36px 28px;
+    }
+    
+    .modal-icon {
+        font-size: 2.8em;
+    }
+    
+    .modal-header h2 {
+        font-size: 1.6em;
+    }
+    
+    .modal-subtitle {
+        font-size: 1em;
+    }
+    
+    #modalBody {
+        padding: 32px 28px;
+    }
+    
+    .modal-section {
+        margin-bottom: 36px;
+    }
+    
+    .modal-section h3 {
+        font-size: 1.25em;
+    }
+    
+    .modal-list li {
+        padding-left: 28px;
+        font-size: 1em;
+    }
+    
+    .modal-conclusion,
+    .modal-info-box {
+        padding: 20px 24px;
+    }
+    
+    .modal-close {
+        top: 16px;
+        right: 16px;
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* === ANIMATIONS SUBTILES === */
+
+@keyframes fadeInContent {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-section {
+    animation: fadeInContent 0.4s ease forwards;
+}
+
+.modal-section:nth-child(1) {
+    animation-delay: 0.05s;
+}
+
+.modal-section:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.modal-section:nth-child(3) {
+    animation-delay: 0.15s;
+}
+
+.modal-section:nth-child(4) {
+    animation-delay: 0.2s;
+}
+
+.modal-section:nth-child(5) {
+    animation-delay: 0.25s;
+}
+
+/* === TYPOGRAPHIE OPTIMISÉE === */
+
+.modal-section p,
+.modal-list li {
+    font-feature-settings: "kern" 1, "liga" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* === ÉTATS DE FOCUS POUR ACCESSIBILITÉ === */
+
+.modal-close:focus {
+    outline: 2px solid white;
+    outline-offset: 2px;
+}
+
+/* === OVERLAY DU MODAL === */
+
+.modal-overlay {
+    background: rgba(26, 58, 82, 0.75);
+    backdrop-filter: blur(8px);
+}
