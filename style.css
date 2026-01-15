@@ -5869,3 +5869,83 @@ body {
     position: relative;
     z-index: 1;
 }
+
+/* ==================== COMPÉTENCES CLIQUABLES AVEC LIENS ==================== */
+
+/* Grid pour 6 compétences (3x2) */
+.skills-detailed-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+}
+
+/* Lien wrapper pour les compétences */
+.skill-detail-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.skill-detail-link:hover {
+    transform: translateY(-5px);
+}
+
+/* Carte de compétence cliquable */
+.clickable-skill {
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.clickable-skill:hover {
+    border-color: var(--secondary);
+    box-shadow: 0 10px 40px rgba(26, 58, 82, 0.15);
+}
+
+/* Badge "Détails" en haut à droite */
+.skill-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    opacity: 0;
+    transform: translateX(10px);
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+.clickable-skill:hover .skill-badge {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* SVG icons pour les compétences */
+.clickable-skill .hex-icon svg {
+    stroke: var(--secondary);
+    transition: stroke 0.3s ease;
+}
+
+.clickable-skill:hover .hex-icon svg {
+    stroke: var(--primary);
+}
+
+/* Responsive pour mobile */
+@media (max-width: 768px) {
+    .skills-detailed-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .skill-badge {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
