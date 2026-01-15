@@ -1,0 +1,306 @@
+/* ==================== INDICATEURS VISUELS ÉLÉGANTS - PHOTO & COMPÉTENCES ==================== */
+
+/* === INDICATEUR PHOTO - PULSE ANIMÉ === */
+
+.profile-image {
+    position: relative;
+}
+
+/* Badge "Cliquez-moi" sur la photo */
+.profile-image::after {
+    content: '👆 Cliquez pour en savoir plus';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: 600;
+    white-space: nowrap;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    animation: gentleBounce 2s ease-in-out infinite;
+    z-index: 5;
+    pointer-events: none;
+}
+
+/* Animation douce de bounce */
+@keyframes gentleBounce {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+/* Effet de pulse sur le contour de la photo */
+.profile-image::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border-radius: 50%;
+    border: 3px solid rgba(102, 126, 234, 0.4);
+    animation: pulseRing 2s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes pulseRing {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.6;
+    }
+}
+
+/* Hover effect sur la photo */
+.profile-image:hover {
+    transform: scale(1.03);
+    transition: transform 0.3s ease;
+}
+
+.profile-image:hover::after {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    animation: none;
+}
+
+/* === INDICATEURS SUR LES CARTES DE COMPÉTENCES === */
+
+/* Badge "Cliquer pour explorer" */
+.skill-hex-card {
+    position: relative;
+    overflow: visible !important;
+}
+
+.skill-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: linear-gradient(135deg, #4D96FF 0%, #2c5f7f 100%);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.8em;
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(77, 150, 255, 0.3);
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* Afficher le badge au survol */
+.skill-hex-card:hover .skill-badge {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Icône animée dans le badge */
+.skill-badge::after {
+    content: ' ✨';
+    animation: sparkle 1.5s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.4;
+    }
+}
+
+/* Petit indicateur permanent en bas à droite */
+.skill-hex-card::after {
+    content: '🔍';
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    font-size: 1.2em;
+    opacity: 0.3;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.skill-hex-card:hover::after {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+/* Effet de glow au survol */
+.skill-hex-card:hover {
+    box-shadow: 0 8px 30px rgba(77, 150, 255, 0.2);
+    border-color: rgba(77, 150, 255, 0.4);
+}
+
+/* === COULEURS POUR LES MODALS - ACCENT COLORÉ === */
+
+/* En-tête avec touche de couleur */
+.modal-header {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    border-bottom: 3px solid #4D96FF;
+}
+
+.modal-icon {
+    background: linear-gradient(135deg, #4D96FF 0%, #2c5f7f 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 2px 4px rgba(77, 150, 255, 0.2));
+}
+
+/* Titres avec accent coloré */
+.modal-section h3 {
+    color: #1a3a52;
+    position: relative;
+    padding-left: 16px;
+}
+
+.modal-section h3::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 70%;
+    background: linear-gradient(180deg, #4D96FF 0%, #2c5f7f 100%);
+    border-radius: 2px;
+}
+
+/* Puces avec couleur */
+.modal-list li::before {
+    content: '▸';
+    color: #4D96FF;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+/* Conclusions avec fond coloré subtil */
+.modal-conclusion {
+    background: linear-gradient(135deg, #f0f7ff 0%, #e8f2ff 100%);
+    border-left: 3px solid #4D96FF;
+    position: relative;
+}
+
+.modal-conclusion::before {
+    content: '💡';
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.5em;
+    opacity: 0.3;
+}
+
+/* Highlight colorés plus visibles */
+.modal-section .highlight-tech,
+.modal-list .highlight-tech {
+    color: #1a3a52;
+    font-weight: 600;
+    background: linear-gradient(to bottom, transparent 50%, rgba(77, 150, 255, 0.15) 50%);
+    padding: 0 3px;
+}
+
+.modal-section .highlight-soft,
+.modal-list .highlight-soft {
+    color: #2c5f7f;
+    font-weight: 600;
+    background: linear-gradient(to bottom, transparent 50%, rgba(102, 126, 234, 0.15) 50%);
+    padding: 0 3px;
+}
+
+/* === INDICATEUR "SCROLL POUR VOIR PLUS" === */
+
+#modalBody::after {
+    content: 'Scroll pour continuer ↓';
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 15px;
+    background: linear-gradient(to top, rgba(255,255,255,0.95), transparent);
+    color: #999;
+    font-size: 0.85em;
+    font-weight: 600;
+    pointer-events: none;
+    opacity: 0;
+    animation: fadeInOut 3s ease-in-out infinite;
+}
+
+@keyframes fadeInOut {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+/* Masquer l'indicateur si on est en bas */
+#modalBody::-webkit-scrollbar-thumb:vertical {
+    background: linear-gradient(180deg, #4D96FF 0%, #2c5f7f 100%);
+}
+
+/* === RESPONSIVE === */
+
+@media (max-width: 768px) {
+    .profile-image::after {
+        font-size: 0.75em;
+        padding: 6px 12px;
+        bottom: -10px;
+    }
+    
+    .skill-badge {
+        font-size: 0.75em;
+        padding: 5px 10px;
+    }
+    
+    .modal-conclusion::before {
+        display: none;
+    }
+}
+
+/* === TOOLTIP AU SURVOL DES COMPÉTENCES === */
+
+.skill-hex-card {
+    cursor: pointer;
+}
+
+.skill-hex-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Message subtil qui apparaît au survol */
+.skill-hex-content::after {
+    content: 'Cliquer pour voir le détail de cette compétence';
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.75em;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 100;
+}
+
+.skill-hex-card:hover .skill-hex-content::after {
+    opacity: 1;
+}
