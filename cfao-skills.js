@@ -1,4 +1,4 @@
-// Données des compétences CFAO
+// Données des compétences CFAO - Version épurée avec niveaux de lecture
 const skillsData = {
     'gestion-vulnerabilites': {
         icon: '🛡️',
@@ -7,96 +7,96 @@ const skillsData = {
         sections: [
             {
                 heading: 'Comprendre avant de sécuriser',
-                content: 'La gestion des vulnérabilités est une démarche continue visant à identifier, analyser, prioriser et corriger les failles de sécurité présentes sur un système d\'information. Elle repose à la fois sur des outils techniques (scans, analyses, tests d\'intrusion), des processus structurés (qualification, suivi, remédiation) et une communication efficace entre les équipes techniques et métiers. Son objectif n\'est pas seulement de détecter des failles, mais de réduire durablement le risque en tenant compte du contexte, de la criticité des actifs et des impacts business.'
+                content: 'La <strong class="highlight-tech">gestion des vulnérabilités</strong> est une démarche continue visant à identifier, analyser, prioriser et corriger les failles de sécurité. Elle repose sur des <strong class="highlight-tech">outils techniques</strong>, des <strong>processus structurés</strong> et une communication efficace entre équipes. Son objectif est de <strong>réduire durablement le risque</strong> en tenant compte du contexte métier et de la criticité des actifs.'
             },
             {
-                heading: 'Ce que cette compétence m\'a apporté sur le terrain',
-                content: 'La mise en pratique de la gestion des vulnérabilités m\'a permis de développer une vision globale et structurée de la sécurité. Concrètement, j\'ai appris à :',
+                heading: 'Ce que cette compétence m\'a apporté',
+                content: 'La mise en pratique m\'a permis de développer une vision globale et structurée :',
                 list: [
-                    'Mettre en place un processus clair et reproductible de détection, d\'évaluation et de suivi des vulnérabilités.',
-                    'Prioriser les risques non pas uniquement selon des scores techniques, mais selon leur impact réel sur l\'organisation.',
-                    'Travailler en lien avec différentes parties prenantes (IT, métiers, partenaires) pour transformer un constat de faille en action concrète.',
-                    'Comprendre que la sécurité n\'est efficace que lorsqu\'elle est opérationnelle, suivie et comprise.'
+                    'Mettre en place un <strong>processus reproductible</strong> de détection, évaluation et suivi',
+                    '<strong>Prioriser les risques</strong> selon leur impact réel sur l\'organisation',
+                    'Travailler avec différentes parties prenantes pour transformer un constat en <strong>action concrète</strong>',
+                    'Comprendre que la sécurité n\'est efficace que lorsqu\'elle est opérationnelle et comprise'
                 ]
             },
             {
-                heading: 'Prendre du recul : mon regard critique',
-                content: 'Avec le recul, cette compétence m\'a aussi appris à identifier mes axes d\'amélioration. J\'ai notamment constaté que :',
+                heading: 'Mon regard critique',
+                content: 'Avec le recul, cette compétence m\'a appris à identifier mes axes d\'amélioration :',
                 list: [
-                    'Les outils sont indispensables, mais ne remplacent pas l\'analyse humaine et le contexte métier.',
-                    'La gestion des vulnérabilités peut devenir chronophage si les processus ne sont pas suffisamment automatisés ou priorisés.',
-                    'La communication autour des vulnérabilités est parfois aussi complexe que leur résolution technique.'
+                    'Les <strong class="highlight-tech">outils</strong> sont indispensables, mais ne remplacent pas l\'analyse humaine',
+                    'La gestion peut devenir chronophage si les processus ne sont pas suffisamment <strong>automatisés</strong>',
+                    'La <strong>communication</strong> autour des vulnérabilités est parfois aussi complexe que leur résolution'
                 ],
                 conclusion: 'Cette autocritique m\'a poussée à chercher un meilleur équilibre entre exhaustivité, efficacité et pragmatisme.'
             },
             {
-                heading: 'Mon évolution dans cette pratique',
+                heading: 'Mon évolution',
                 content: 'Au fil de l\'expérience, ma posture a évolué :',
                 list: [
-                    'D\'une approche principalement technique vers une approche orientée risque et décision.',
-                    'D\'une logique de détection à une logique de pilotage et de suivi dans le temps.',
-                    'D\'une vision individuelle à une dynamique collective, intégrant sensibilisation et accompagnement des équipes.'
+                    'D\'une approche technique vers une <strong>approche orientée risque</strong> et décision',
+                    'D\'une logique de détection à une logique de <strong>pilotage et suivi</strong>',
+                    'D\'une vision individuelle à une <strong>dynamique collective</strong>'
                 ],
-                conclusion: 'J\'ai appris à considérer la gestion des vulnérabilités comme un levier de maturité cybersécurité, et non comme une simple obligation technique.'
+                conclusion: 'J\'ai appris à considérer la gestion des vulnérabilités comme un levier de maturité cybersécurité.'
             },
             {
                 heading: 'Regard vers l\'avenir',
-                content: 'À moyen et long terme, je souhaite approfondir cette compétence en :',
+                content: 'À moyen et long terme, je souhaite approfondir cette compétence :',
                 list: [
-                    'Renforçant mes connaissances en gestion du risque, gouvernance et conformité.',
-                    'Continuant à relier la gestion des vulnérabilités à la sensibilisation des utilisateurs, car l\'humain reste un maillon clé de la sécurité.'
+                    'Renforcer mes connaissances en <strong>gestion du risque</strong> et gouvernance',
+                    'Relier la gestion technique à la <strong>sensibilisation des utilisateurs</strong>'
                 ],
-                conclusion: 'Mon ambition est de faire de la gestion des vulnérabilités un outil de décision stratégique, au service de la protection des systèmes et des personnes.'
+                conclusion: 'Mon ambition est d\'en faire un outil de décision stratégique au service de la protection des systèmes et des personnes.'
             }
         ]
     },
     'pentest': {
         icon: '🔍',
         title: 'Tests d\'intrusion (Pentest)',
-        subtitle: 'Méthodologie structurée et vision offensive de la sécurité',
+        subtitle: 'Méthodologie structurée et vision offensive',
         sections: [
             {
                 heading: 'Comprendre pour mieux protéger',
-                content: 'Le pentest (test d\'intrusion) consiste à simuler une attaque réelle sur un système d\'information pour identifier ses vulnérabilités avant qu\'un attaquant malveillant ne les exploite. Cette démarche offensive permet de valider l\'efficacité des mesures de sécurité en place et de fournir des recommandations concrètes pour renforcer la posture de défense. Un pentest bien mené combine expertise technique, méthodologie rigoureuse et compréhension du contexte métier.'
+                content: 'Le <strong class="highlight-tech">pentest</strong> consiste à simuler une attaque réelle pour identifier les vulnérabilités avant qu\'un attaquant ne les exploite. Cette démarche offensive permet de valider l\'efficacité des mesures de sécurité et de fournir des <strong>recommandations concrètes</strong>. Un pentest bien mené combine expertise technique, <strong>méthodologie rigoureuse</strong> et compréhension du contexte métier.'
             },
             {
-                heading: 'Ce que cette compétence m\'a apporté concrètement',
-                content: 'La pratique des tests d\'intrusion m\'a permis de développer une approche offensive de la cybersécurité. Concrètement, j\'ai appris à :',
+                heading: 'Ce que cette compétence m\'a apporté',
+                content: 'La pratique des tests d\'intrusion m\'a permis de développer une approche offensive :',
                 list: [
-                    'Élaborer une méthodologie de pentest structurée, reproductible et traçable.',
-                    'Maîtriser des outils spécialisés (Nessus, Nmap, Nikto, WhatWeb) et comprendre leurs résultats.',
-                    'Identifier les vulnérabilités critiques et évaluer leur exploitabilité réelle.',
-                    'Documenter les failles découvertes avec clarté pour faciliter leur remédiation par les équipes techniques.'
+                    'Élaborer une <strong>méthodologie structurée</strong>, reproductible et traçable',
+                    'Maîtriser des <strong class="highlight-tech">outils spécialisés</strong> (Nessus, Nmap, Nikto, WhatWeb)',
+                    'Identifier les <strong>vulnérabilités critiques</strong> et évaluer leur exploitabilité',
+                    'Documenter les failles avec clarté pour faciliter leur remédiation'
                 ]
             },
             {
                 heading: 'Mon regard critique',
-                content: 'En prenant du recul sur ma pratique du pentest, j\'ai identifié plusieurs axes d\'amélioration :',
+                content: 'En prenant du recul, j\'ai identifié plusieurs axes d\'amélioration :',
                 list: [
-                    'Un pentest sans contexte métier est incomplet : comprendre les priorités business est essentiel.',
-                    'Les outils automatisés sont puissants, mais l\'analyse manuelle reste indispensable pour détecter les failles complexes.',
-                    'La communication des résultats doit être adaptée à chaque interlocuteur : technique pour les équipes IT, stratégique pour la direction.'
+                    'Un pentest sans <strong>contexte métier</strong> est incomplet',
+                    'Les outils automatisés sont puissants, mais l\'<strong>analyse manuelle</strong> reste indispensable',
+                    'La communication doit être <strong>adaptée</strong> à chaque interlocuteur'
                 ],
-                conclusion: 'Cette réflexion m\'a amenée à toujours contextualiser mes tests et à soigner la présentation de mes recommandations.'
+                conclusion: 'Cette réflexion m\'a amenée à toujours contextualiser mes tests et soigner la présentation.'
             },
             {
-                heading: 'Mon évolution dans cette pratique',
-                content: 'Ma pratique du pentest a évolué progressivement :',
+                heading: 'Mon évolution',
+                content: 'Ma pratique a progressivement évolué :',
                 list: [
-                    'D\'une approche purement technique vers une vision orientée impact métier.',
-                    'D\'une exécution de tests ponctuels vers l\'intégration dans un processus continu de sécurité.',
-                    'D\'un focus sur la détection vers un accompagnement complet incluant priorisation et remédiation.'
+                    'D\'une approche technique vers une vision <strong>orientée impact métier</strong>',
+                    'De tests ponctuels vers l\'intégration dans un <strong>processus continu</strong>',
+                    'D\'un focus sur la détection vers un accompagnement complet'
                 ]
             },
             {
-                heading: 'Projection et ambitions',
-                content: 'Pour continuer à progresser dans le domaine des tests d\'intrusion, je souhaite :',
+                heading: 'Projection',
+                content: 'Pour continuer à progresser, je souhaite :',
                 list: [
-                    'Approfondir mes connaissances en exploitation avancée et post-exploitation.',
-                    'Développer mes compétences en pentest applicatif (web, mobile, API).',
-                    'Renforcer mon approche Red Team pour simuler des scénarios d\'attaque réalistes et complexes.'
+                    'Approfondir mes connaissances en <strong>exploitation avancée</strong>',
+                    'Développer mes compétences en <strong class="highlight-tech">pentest applicatif</strong> (web, mobile, API)',
+                    'Renforcer mon approche <strong>Red Team</strong> pour des scénarios réalistes'
                 ],
-                conclusion: 'Mon objectif est de devenir une experte capable d\'évaluer la résilience globale d\'une organisation face aux cybermenaces.'
+                conclusion: 'Mon objectif est d\'évaluer la résilience globale d\'une organisation face aux cybermenaces.'
             }
         ]
     },
@@ -106,47 +106,47 @@ const skillsData = {
         subtitle: 'Transformer les utilisateurs en acteurs de la sécurité',
         sections: [
             {
-                heading: 'L\'humain, maillon essentiel de la sécurité',
-                content: 'La sensibilisation à la cybersécurité vise à éduquer et former les utilisateurs aux bonnes pratiques de sécurité, afin de réduire les risques liés au facteur humain. Elle repose sur la création de contenus pédagogiques adaptés, l\'animation de formations interactives et la mesure de l\'adoption des comportements sécurisés. Une sensibilisation réussie transforme les collaborateurs d\'une potentielle vulnérabilité en première ligne de défense contre les cyberattaques.'
+                heading: 'L\'humain, maillon essentiel',
+                content: 'La <strong>sensibilisation</strong> vise à éduquer les utilisateurs aux bonnes pratiques de sécurité pour réduire les risques liés au <strong>facteur humain</strong>. Elle repose sur la création de contenus pédagogiques adaptés, l\'animation de formations interactives et la mesure de l\'adoption des comportements sécurisés. Une sensibilisation réussie transforme les collaborateurs en <strong>première ligne de défense</strong>.'
             },
             {
                 heading: 'Ce que cette compétence m\'a apporté',
-                content: 'Le déploiement de programmes de sensibilisation m\'a permis de développer des compétences transverses essentielles :',
+                content: 'Le déploiement de programmes de sensibilisation m\'a permis de développer :',
                 list: [
-                    'Concevoir des contenus pédagogiques engageants (vidéos, quiz, ateliers) adaptés à différents publics.',
-                    'Vulgariser des concepts techniques complexes pour les rendre accessibles et actionnables.',
-                    'Animer des formations interactives qui suscitent l\'adhésion et favorisent le changement de comportement.',
-                    'Mesurer l\'efficacité des campagnes de sensibilisation et ajuster les contenus en conséquence.'
+                    'Concevoir des <strong>contenus pédagogiques engageants</strong> adaptés à différents publics',
+                    '<strong>Vulgariser</strong> des concepts techniques complexes',
+                    'Animer des <strong>formations interactives</strong> qui favorisent le changement',
+                    'Mesurer l\'efficacité des campagnes et ajuster les contenus'
                 ]
             },
             {
-                heading: 'Autocritique et axes d\'amélioration',
-                content: 'Avec le recul, j\'ai identifié plusieurs apprentissages et limites de ma pratique :',
+                heading: 'Mon regard critique',
+                content: 'Avec le recul, j\'ai identifié plusieurs apprentissages :',
                 list: [
-                    'La sensibilisation ponctuelle n\'est pas suffisante : elle doit être continue et intégrée au quotidien.',
-                    'Chaque public a ses propres enjeux : une approche unique ne fonctionne pas pour tous les métiers.',
-                    'Le changement de comportement prend du temps : la patience et la répétition sont nécessaires.'
+                    'La sensibilisation ponctuelle ne suffit pas : elle doit être <strong>continue</strong>',
+                    'Chaque public a ses propres enjeux : une approche unique ne fonctionne pas',
+                    'Le changement de comportement prend du temps : patience et répétition sont nécessaires'
                 ],
-                conclusion: 'Cette prise de conscience m\'a poussée à adopter une approche plus personnalisée et à inscrire la sensibilisation dans la durée.'
+                conclusion: 'Cette prise de conscience m\'a poussée à adopter une approche personnalisée et durable.'
             },
             {
                 heading: 'Mon évolution',
-                content: 'Ma posture dans la sensibilisation cybersécurité a progressivement évolué :',
+                content: 'Ma posture a progressivement évolué :',
                 list: [
-                    'D\'une approche descendante (imposer des règles) vers une approche participative (co-construire avec les utilisateurs).',
-                    'De la transmission d\'informations vers la création d\'expériences engageantes et mémorables.',
-                    'D\'une vision centrée sur le contenu vers une vision centrée sur l\'impact et le changement de comportement.'
+                    'D\'une approche descendante vers une <strong>approche participative</strong>',
+                    'De la transmission d\'informations vers la création d\'<strong>expériences engageantes</strong>',
+                    'D\'une vision centrée sur le contenu vers une vision centrée sur l\'<strong>impact</strong>'
                 ]
             },
             {
                 heading: 'Vision pour l\'avenir',
-                content: 'À moyen et long terme, je souhaite continuer à renforcer cette compétence en :',
+                content: 'Pour renforcer cette compétence, je souhaite :',
                 list: [
-                    'Développant des programmes de sensibilisation gamifiés et innovants pour maximiser l\'engagement.',
-                    'Intégrant davantage de retours d\'expérience réels et de mises en situation pratiques.',
-                    'Formant des ambassadeurs cybersécurité au sein des équipes pour démultiplier l\'impact.'
+                    'Développer des programmes <strong>gamifiés</strong> et innovants',
+                    'Intégrer davantage de <strong>retours d\'expérience réels</strong>',
+                    'Former des <strong>ambassadeurs cybersécurité</strong> pour démultiplier l\'impact'
                 ],
-                conclusion: 'Mon ambition est de faire de la sensibilisation un levier stratégique de transformation culturelle, où chaque collaborateur devient acteur conscient de la sécurité.'
+                conclusion: 'Mon ambition est de faire de la sensibilisation un levier de transformation culturelle.'
             }
         ]
     }
