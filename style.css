@@ -5949,3 +5949,84 @@ body {
         transform: translateX(0);
     }
 }
+
+/* ==================== COULEURS DISTINCTES PAR TYPE DE COMPÉTENCE ==================== */
+
+/* Compétences TECHNIQUES - Bleu marine / Cyan (cohérent avec votre palette) */
+.skill-technique {
+    background: linear-gradient(135deg, rgba(26, 58, 82, 0.03) 0%, rgba(77, 150, 255, 0.05) 100%);
+    border-left: 4px solid #4D96FF;
+}
+
+.skill-technique:hover {
+    background: linear-gradient(135deg, rgba(26, 58, 82, 0.08) 0%, rgba(77, 150, 255, 0.12) 100%);
+    border-color: #2c5f7f;
+    box-shadow: 0 10px 40px rgba(77, 150, 255, 0.2);
+}
+
+.skill-technique .skill-badge {
+    background: linear-gradient(135deg, #4D96FF 0%, #2c5f7f 100%);
+}
+
+.skill-technique .icon-circle {
+    background: linear-gradient(135deg, #4D96FF 0%, #2c5f7f 100%);
+}
+
+/* Compétences HUMAINES - Rose/Corail chaleureux */
+.skill-humaine {
+    background: linear-gradient(135deg, rgba(255, 107, 129, 0.03) 0%, rgba(255, 175, 189, 0.05) 100%);
+    border-left: 4px solid #FF6B81;
+}
+
+.skill-humaine:hover {
+    background: linear-gradient(135deg, rgba(255, 107, 129, 0.08) 0%, rgba(255, 175, 189, 0.12) 100%);
+    border-color: #FF4757;
+    box-shadow: 0 10px 40px rgba(255, 107, 129, 0.2);
+}
+
+.skill-humaine .skill-badge {
+    background: linear-gradient(135deg, #FF6B81 0%, #FF4757 100%);
+}
+
+.skill-humaine .icon-circle {
+    background: linear-gradient(135deg, #FF6B81 0%, #FF4757 100%);
+}
+
+/* Cercle d'icône avec emoji */
+.icon-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    margin: 0 auto;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.clickable-skill:hover .icon-circle {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+}
+
+/* Mise à jour des points de légende */
+.legend-dot.technique {
+    background: linear-gradient(135deg, #4D96FF 0%, #2c5f7f 100%);
+}
+
+.legend-dot.humaine {
+    background: linear-gradient(135deg, #FF6B81 0%, #FF4757 100%);
+}
+
+/* Ajustement de la catégorie selon le type */
+.skill-technique .skill-category {
+    color: #2c5f7f;
+    font-weight: 600;
+}
+
+.skill-humaine .skill-category {
+    color: #FF4757;
+    font-weight: 600;
+}
