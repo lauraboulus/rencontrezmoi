@@ -6030,3 +6030,76 @@ body {
     color: #FF4757;
     font-weight: 600;
 }
+
+/* ==================== COMPÉTENCES ORGANISÉES PAR PROJET ==================== */
+
+.skills-by-project {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-xl);
+}
+
+.project-skills-group {
+    background: var(--bg-secondary);
+    border-radius: 20px;
+    padding: var(--spacing-xl);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.project-skills-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin-bottom: var(--spacing-lg);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+/* Badges des projets */
+.project-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: white;
+}
+
+.badge-cfao {
+    background: linear-gradient(135deg, #1a3a52 0%, #2c5f7f 100%);
+}
+
+.badge-thom {
+    background: linear-gradient(135deg, #4D96FF 0%, #2c5f7f 100%);
+}
+
+.badge-apolavsis {
+    background: linear-gradient(135deg, #FF6B81 0%, #FF4757 100%);
+}
+
+/* Grid adapté par groupe */
+.project-skills-group .skills-detailed-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .project-skills-group {
+        padding: var(--spacing-lg);
+    }
+    
+    .project-skills-title {
+        font-size: 1.2rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-xs);
+    }
+    
+    .project-skills-group .skills-detailed-grid {
+        grid-template-columns: 1fr;
+    }
+}
