@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Démonstration - Niveaux de Lecture</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="reading-levels.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Manrope', sans-serif;
+            line-height: 1.7;
+            color: #4a4a4a;
+            background: #faf8f3;
+            padding: 40px 20px;
+        }
+        .demo-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 60px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+        }
+        h1 {
+            font-family: 'Playfair Display', serif;
+            color: #1a3a52;
+            font-size: 2.5em;
+            margin-bottom: 0.5em;
+            text-align: center;
+        }
+        .demo-intro {
+            text-align: center;
+            color: #6C757D;
+            margin-bottom: 50px;
+            font-size: 1.1em;
+        }
+        .demo-section {
+            margin-bottom: 60px;
+        }
+        h2 {
+            font-family: 'Playfair Display', serif;
+            color: #1a3a52;
+            font-size: 1.8em;
+            margin-bottom: 0.8em;
+            padding-bottom: 0.3em;
+            border-bottom: 2px solid #4D96FF;
+        }
+        h3 {
+            font-family: 'Playfair Display', serif;
+            color: #2c5f7f;
+            font-size: 1.3em;
+            margin: 30px 0 15px 0;
+        }
+        .color-demo {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+        .color-card {
+            flex: 1;
+            min-width: 200px;
+            padding: 20px;
+            border-radius: 12px;
+            background: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .color-preview {
+            height: 60px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .color-tech {
+            background: linear-gradient(135deg, #1a3a52 0%, #2c5f7f 100%);
+        }
+        .color-soft {
+            background: linear-gradient(135deg, #2c5f7f 0%, #4D96FF 100%);
+        }
+        .color-keyword {
+            background: linear-gradient(135deg, #2d2d2d 0%, #4a4a4a 100%);
+        }
+        .color-card h4 {
+            color: #1a3a52;
+            margin-bottom: 10px;
+        }
+        .color-card p {
+            color: #6C757D;
+            font-size: 0.9em;
+        }
+        .before-after {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        .before, .after {
+            padding: 25px;
+            border-radius: 12px;
+        }
+        .before {
+            background: #f5f1e8;
+            border: 2px solid #e0ddd4;
+        }
+        .after {
+            background: #f0f7ff;
+            border: 2px solid #4D96FF;
+        }
+        .label {
+            font-weight: 700;
+            color: #1a3a52;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        .example-text {
+            line-height: 1.8;
+        }
+        @media (max-width: 768px) {
+            .demo-container {
+                padding: 30px;
+            }
+            .before-after {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <h1>🎨 Démonstration - Niveaux de Lecture</h1>
+        <p class="demo-intro">Découvrez comment la hiérarchisation visuelle améliore la lisibilité de votre portfolio</p>
+
+        <!-- Section 1 : Palette de couleurs -->
+        <div class="demo-section">
+            <h2>Palette de couleurs</h2>
+            <div class="color-demo">
+                <div class="color-card">
+                    <div class="color-preview color-tech"></div>
+                    <h4>Technique</h4>
+                    <p><strong>Bleu marine</strong> (#1a3a52)</p>
+                    <p>Outils, technologies, termes techniques</p>
+                </div>
+                <div class="color-card">
+                    <div class="color-preview color-soft"></div>
+                    <h4>Humain</h4>
+                    <p><strong>Bleu clair</strong> (#2c5f7f)</p>
+                    <p>Soft skills, qualités, relations</p>
+                </div>
+                <div class="color-card">
+                    <div class="color-preview color-keyword"></div>
+                    <h4>Concepts clés</h4>
+                    <p><strong>Noir renforcé</strong> (#2d2d2d)</p>
+                    <p>Idées importantes, objectifs</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2 : Avant/Après -->
+        <div class="demo-section">
+            <h2>Avant / Après</h2>
+            <div class="before-after">
+                <div class="before">
+                    <div class="label">❌ AVANT</div>
+                    <div class="example-text">
+                        Au sein de CFAO, j'ai participé à une mission clé : la gestion des vulnérabilités et la sensibilisation à la cybersécurité. Cette réalisation s'inscrit dans une démarche globale de renforcement de la posture de sécurité du système d'information.
+                    </div>
+                </div>
+                <div class="after">
+                    <div class="label">✅ APRÈS</div>
+                    <div class="example-text">
+                        Au sein de CFAO, j'ai participé à une <strong class="highlight-keyword">mission clé</strong> : la <strong class="highlight-tech">gestion des vulnérabilités</strong> et la <strong class="highlight-tech">sensibilisation à la cybersécurité</strong>. Cette réalisation s'inscrit dans une <strong class="highlight-keyword">démarche globale</strong> de renforcement de la <strong class="highlight-tech">posture de sécurité</strong> du système d'information.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3 : Exemples de mots-clés -->
+        <div class="demo-section">
+            <h2>Exemples de mots-clés mis en valeur</h2>
+            
+            <h3>🔧 Mots-clés techniques (bleu marine)</h3>
+            <p>
+                <strong class="highlight-tech">Nessus</strong>, 
+                <strong class="highlight-tech">Nmap</strong>, 
+                <strong class="highlight-tech">gestion des vulnérabilités</strong>, 
+                <strong class="highlight-tech">tests d'intrusion</strong>, 
+                <strong class="highlight-tech">SharePoint</strong>, 
+                <strong class="highlight-tech">cybersécurité</strong>
+            </p>
+
+            <h3>💙 Soft skills (bleu clair)</h3>
+            <p>
+                <strong class="highlight-soft">empathie</strong>, 
+                <strong class="highlight-soft">leadership</strong>, 
+                <strong class="highlight-soft">bienveillance</strong>, 
+                <strong class="highlight-soft">pédagogie</strong>, 
+                <strong class="highlight-soft">communication</strong>, 
+                <strong class="highlight-soft">écoute active</strong>
+            </p>
+
+            <h3>⭐ Concepts clés (gras renforcé)</h3>
+            <p>
+                <strong class="highlight-keyword">mission stratégique</strong>, 
+                <strong class="highlight-keyword">impact positif</strong>, 
+                <strong class="highlight-keyword">objectifs clés</strong>, 
+                <strong class="highlight-keyword">résultats concrets</strong>, 
+                <strong class="highlight-keyword">démarche globale</strong>
+            </p>
+        </div>
+
+        <!-- Section 4 : Encadrés -->
+        <div class="demo-section">
+            <h2>Encadrés et boîtes d'information</h2>
+
+            <h3>💡 Info-box (fond bleu clair)</h3>
+            <div class="info-box">
+                <strong>🎯 Objectif clé :</strong> Mettre en avant une information importante ou un point clé qui mérite l'attention du lecteur.
+            </div>
+
+            <h3>✅ Success-box (fond vert clair)</h3>
+            <div class="success-box">
+                <strong>✅ Résultat obtenu :</strong> Mise en place d'un <strong class="highlight-keyword">processus reproductible</strong> avec un <strong class="highlight-tech">taux de remédiation de 85%</strong>.
+            </div>
+
+            <h3>⚠️ Alert-box (fond jaune clair)</h3>
+            <div class="alert-box">
+                <strong>⚠️ Point d'attention :</strong> Il est crucial de maintenir une <strong>veille continue</strong> pour identifier rapidement les nouvelles vulnérabilités.
+            </div>
+        </div>
+
+        <!-- Section 5 : Liste améliorée -->
+        <div class="demo-section">
+            <h2>Listes avec points clés mis en valeur</h2>
+            <ul class="detail-list">
+                <li><strong>Vision globale</strong> : Comprendre l'ensemble du processus de <span class="highlight-tech">détection</span> à la <span class="highlight-tech">remédiation</span></li>
+                <li><strong>Priorisation stratégique</strong> : Évaluer les risques selon leur <span class="highlight-keyword">impact réel</span> sur l'organisation</li>
+                <li><strong>Communication transverse</strong> : Travailler avec les équipes <span class="highlight-tech">IT</span>, <span class="highlight-keyword">métiers</span> et <span class="highlight-keyword">partenaires</span></li>
+                <li><strong>Approche opérationnelle</strong> : Transformer un constat technique en <span class="highlight-keyword">action concrète</span></li>
+            </ul>
+        </div>
+
+        <!-- Section 6 : Blockquote -->
+        <div class="demo-section">
+            <h2>Citation mise en valeur</h2>
+            <div class="styled-blockquote">
+                La cybersécurité n'est pas qu'une affaire de technologie. C'est une <strong>culture</strong>, une <strong>vigilance collective</strong> où chaque collaborateur devient un <strong>maillon fort</strong> de la chaîne de protection.
+            </div>
+        </div>
+
+        <!-- Section 7 : Impact Grid -->
+        <div class="demo-section">
+            <h2>Grille d'impact</h2>
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-icon">🔍</div>
+                    <h5 class="impact-title">Processus structuré</h5>
+                    <p class="impact-description"><strong>Détection</strong>, <strong>évaluation</strong> et <strong>remédiation</strong> avec veille continue</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon">📋</div>
+                    <h5 class="impact-title">Méthodologie pentest</h5>
+                    <p class="impact-description"><strong>Template standardisé</strong> et processus <strong>reproductible</strong></p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon">🗺️</div>
+                    <h5 class="impact-title">Cartographie complète</h5>
+                    <p class="impact-description"><strong>Domaines, IP, URL</strong> avec niveaux de <strong>criticité</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conclusion -->
+        <div class="demo-section">
+            <div class="success-box">
+                <strong>🎉 Résultat final :</strong> Un portfolio professionnel avec une <strong class="highlight-keyword">hiérarchie visuelle claire</strong> qui facilite la <strong class="highlight-keyword">lecture en diagonal</strong> et met en valeur vos <strong class="highlight-tech">compétences techniques</strong> et vos <strong class="highlight-soft">qualités humaines</strong>.
+            </div>
+        </div>
+    </div>
+</body>
+</html>

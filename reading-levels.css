@@ -1,0 +1,263 @@
+/* ==================== NIVEAUX DE LECTURE - HIÉRARCHISATION VISUELLE ==================== */
+
+/* === CLASSES POUR MOTS-CLÉS === */
+
+/* Mots-clés techniques / outils (bleu marine - couleur principale du portfolio) */
+.highlight-tech {
+    color: #1a3a52;
+    font-weight: 600;
+    background: linear-gradient(to bottom, transparent 60%, rgba(26, 58, 82, 0.1) 60%);
+    padding: 0 2px;
+}
+
+/* Mots-clés soft skills / qualités humaines (bleu clair) */
+.highlight-soft {
+    color: #2c5f7f;
+    font-weight: 600;
+    background: linear-gradient(to bottom, transparent 60%, rgba(77, 150, 255, 0.1) 60%);
+    padding: 0 2px;
+}
+
+/* Concepts clés / mots importants (noir renforcé) */
+.highlight-keyword {
+    color: #2d2d2d;
+    font-weight: 700;
+    position: relative;
+}
+
+/* === ENCADRÉS AMÉLIORÉS === */
+
+/* Encadré d'information / astuce */
+.info-box {
+    background: linear-gradient(135deg, #f0f7ff 0%, #e8f2ff 100%);
+    border-left: 4px solid #4D96FF;
+    padding: 20px 24px;
+    margin: 24px 0;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(77, 150, 255, 0.08);
+}
+
+.info-box strong {
+    color: #1a3a52;
+    font-weight: 700;
+    font-size: 1.05em;
+}
+
+/* Encadré de succès / résultat clé */
+.success-box {
+    background: linear-gradient(135deg, #f0fff4 0%, #e6f7ed 100%);
+    border-left: 4px solid #6BCB77;
+    padding: 20px 24px;
+    margin: 24px 0;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(107, 203, 119, 0.08);
+}
+
+.success-box strong {
+    color: #2d8345;
+    font-weight: 700;
+    font-size: 1.05em;
+}
+
+/* Encadré d'alerte / point d'attention */
+.alert-box {
+    background: linear-gradient(135deg, #fff9f0 0%, #fff2e6 100%);
+    border-left: 4px solid #FFD93D;
+    padding: 20px 24px;
+    margin: 24px 0;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(255, 217, 61, 0.08);
+}
+
+.alert-box strong {
+    color: #b8860b;
+    font-weight: 700;
+    font-size: 1.05em;
+}
+
+/* === BLOCKQUOTES STYLISÉES === */
+
+.styled-blockquote {
+    background: linear-gradient(135deg, #1a3a52 0%, #2c5f7f 100%);
+    color: white;
+    padding: 32px 40px;
+    margin: 40px 0;
+    border-radius: 16px;
+    font-size: 1.15em;
+    line-height: 1.8;
+    font-style: italic;
+    position: relative;
+    box-shadow: 0 8px 24px rgba(26, 58, 82, 0.2);
+}
+
+.styled-blockquote::before {
+    content: '"';
+    font-size: 4em;
+    color: rgba(255, 255, 255, 0.2);
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    font-family: Georgia, serif;
+}
+
+.styled-blockquote strong {
+    color: #FFD93D;
+    font-weight: 700;
+}
+
+/* === EMPHASE ET CITATIONS === */
+
+.emphasis {
+    font-size: 1.1em;
+    line-height: 1.7;
+    color: #2d2d2d;
+    margin: 24px 0;
+    padding-left: 24px;
+    border-left: 3px solid #4D96FF;
+}
+
+.quote-style {
+    font-size: 1.15em;
+    line-height: 1.8;
+    font-style: italic;
+    color: #1a3a52;
+    font-weight: 500;
+    margin: 32px 0;
+    padding: 24px 32px;
+    background: linear-gradient(to right, rgba(77, 150, 255, 0.05), transparent);
+    border-left: 4px solid #4D96FF;
+    border-radius: 8px;
+}
+
+/* === LISTES AMÉLIORÉES === */
+
+.detail-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 24px 0;
+}
+
+.detail-list li {
+    padding-left: 36px;
+    position: relative;
+    margin-bottom: 16px;
+    line-height: 1.7;
+}
+
+.detail-list li::before {
+    content: '▸';
+    position: absolute;
+    left: 12px;
+    color: #4D96FF;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.detail-list li strong {
+    color: #1a3a52;
+    font-weight: 700;
+}
+
+/* === AMÉLIORATION DES SECTIONS CONTENT === */
+
+.content-section {
+    margin-bottom: 48px;
+}
+
+.content-section p {
+    line-height: 1.8;
+    margin-bottom: 16px;
+    color: #4a4a4a;
+}
+
+.content-section p strong {
+    color: #1a3a52;
+    font-weight: 600;
+}
+
+/* Section mise en valeur */
+.highlight-section {
+    background: linear-gradient(135deg, #faf8f3 0%, #f5f1e8 100%);
+    padding: 32px;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(26, 58, 82, 0.08);
+}
+
+/* === GRILLE D'IMPACT AMÉLIORÉE === */
+
+.impact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin: 32px 0;
+}
+
+.impact-card {
+    background: white;
+    padding: 28px;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(26, 58, 82, 0.08);
+}
+
+.impact-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(26, 58, 82, 0.12);
+}
+
+.impact-icon {
+    font-size: 2.5em;
+    margin-bottom: 16px;
+}
+
+.impact-title {
+    font-size: 1.15em;
+    font-weight: 700;
+    color: #1a3a52;
+    margin-bottom: 12px;
+    font-family: 'Playfair Display', serif;
+}
+
+.impact-description {
+    line-height: 1.6;
+    color: #6C757D;
+    font-size: 0.95em;
+}
+
+.impact-description strong {
+    color: #1a3a52;
+    font-weight: 600;
+}
+
+/* === RESPONSIVE === */
+
+@media (max-width: 768px) {
+    .info-box,
+    .success-box,
+    .alert-box,
+    .highlight-section {
+        padding: 20px;
+    }
+    
+    .styled-blockquote {
+        padding: 24px;
+        font-size: 1.05em;
+    }
+    
+    .quote-style {
+        font-size: 1.05em;
+        padding: 20px 24px;
+    }
+    
+    .impact-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .emphasis {
+        font-size: 1.05em;
+        padding-left: 16px;
+    }
+}
